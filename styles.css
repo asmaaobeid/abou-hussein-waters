@@ -271,6 +271,12 @@ body {
     background: var(--light-bg);
 }
 
+/* Available Sizes Section */
+.sizes {
+    padding: 100px 0;
+    background: var(--white);
+}
+
 .section-title {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
@@ -376,6 +382,11 @@ body {
     align-items: center;
     padding-top: 1.5rem;
     border-top: 1px solid #eee;
+}
+
+/* Info cards without buttons */
+.info-card .product-footer {
+    display: none;
 }
 
 .btn-cart {
@@ -987,6 +998,24 @@ body {
     font-size: 0.85rem;
     line-height: 1.5;
     margin-bottom: 1rem;
+}
+
+.wizard-sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.size-badge {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
 }
 
 .wizard-features {
