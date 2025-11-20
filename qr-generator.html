@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator - Abou Hussein Waters</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f4a5c7 0%, #d4a574 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #d4a574;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #d4a574;
+        }
+
+        button {
+            background: #d4a574;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #c9a96f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 165, 116, 0.3);
+        }
+
+        #qrcode {
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .download-btn {
+            margin-top: 20px;
+            background: #6b8e6b;
+        }
+
+        .download-btn:hover {
+            background: #5a7a5a;
+        }
+
+        .instructions {
+            margin-top: 30px;
+            padding: 20px;
+            background: #faf8f5;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .instructions h3 {
+            color: #d4a574;
+            margin-bottom: 10px;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+            color: #666;
+        }
+
+        .instructions li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌹 QR Code Generator</h1>
+        <p>Generate a QR code for your Abou Hussein Waters website</p>
+        
+        <div class="input-group">
+            <input type="text" id="websiteUrl" placeholder="Enter your website URL" value="https://your-website-url.com">
+        </div>
+        
+        <button onclick="generateQR()">Generate QR Code</button>
+        
+        <div id="qrcode"></div>
+        
+        <button class="download-btn" onclick="downloadQR()" id="downloadBtn" style="display: none;">Download QR Code</button>
+        
+        <div class="instructions">
+            <h3>How to Use:</h3>
+            <ol>
+                <li>Enter your deployed website URL above</li>
+                <li>Click "Generate QR Code"</li>
+                <li>Download the QR code image</li>
+                <li>Print it or display it for customers to scan</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        let qrCodeInstance = null;
+
+        function generateQR() {
+            const url = document.getElementById('websiteUrl').value;
+            
+            if (!url) {
+                alert('Please enter a website URL');
+                return;
+            }
+
+            // Clear previous QR code
+            document.getElementById('qrcode').innerHTML = '';
+            
+            // Generate new QR code
+            qrCodeInstance = new QRCode(document.getElementById('qrcode'), {
+                text: url,
+                width: 256,
+                height: 256,
+                colorDark: '#2c2c2c',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            // Show download button
+            document.getElementById('downloadBtn').style.display = 'block';
+        }
+
+        function downloadQR() {
+            const canvas = document.querySelector('#qrcode canvas');
+            if (!canvas) {
+                alert('Please generate a QR code first');
+                return;
+            }
+
+            const url = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = 'abou-hussein-waters-qrcode.png';
+            link.href = url;
+            link.click();
+        }
+
+        // Auto-generate on page load if URL is provided
+        window.onload = function() {
+            const url = document.getElementById('websiteUrl').value;
+            if (url && url !== 'https://your-website-url.com') {
+                generateQR();
+            }
+        };
+    </script>
+</body>
+</html>
+

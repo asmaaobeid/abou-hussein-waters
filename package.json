@@ -1,0 +1,43 @@
+{
+  "name": "abou-hussein-waters",
+  "version": "1.0.0",
+  "description": "A beautiful marketing website for handcrafted rose water and flower water products - Abou Hussein Waters",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [
+    "rose-water",
+    "flower-water",
+    "natural-products",
+    "skincare",
+    "aromatherapy",
+    "organic",
+    "handcrafted",
+    "marketing",
+    "website"
+  ],
+  "author": "Abou Hussein Waters",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/abou-hussein-waters.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/abou-hussein-waters/issues"
+  },
+  "homepage": "https://github.com/yourusername/pure-essence-rose-water#readme",
+  "devDependencies": {},
+  "dependencies": {},
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
+
