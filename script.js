@@ -202,16 +202,24 @@ document.querySelectorAll('.nav-link').forEach(link => {
 // New Item Popup
 function showPopup() {
     const popup = document.getElementById('newItemPopup');
-    // Check if popup was already shown (using sessionStorage)
-    const popupShown = sessionStorage.getItem('popupShown');
+    if (!popup) {
+        console.error('Popup element not found!');
+        return;
+    }
     
-    if (!popupShown) {
-        setTimeout(() => {
+    console.log('showPopup called, popup element found');
+    
+    // Show popup immediately for testing
+    setTimeout(() => {
+        if (popup) {
             popup.classList.add('show');
             // Prevent body scroll when popup is open
             document.body.style.overflow = 'hidden';
-        }, 1000); // Show popup after 1 second
-    }
+            console.log('Popup class "show" added');
+        } else {
+            console.error('Popup element disappeared!');
+        }
+    }, 500); // Show popup after 0.5 seconds
 }
 
 function closePopup() {
@@ -231,8 +239,32 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Show popup on page load
-window.addEventListener('load', () => {
-    showPopup();
-});
+// Show popup on page load - try multiple ways
+(function() {
+    function initPopup() {
+        console.log('Initializing popup...');
+        const popup = document.getElementById('newItemPopup');
+        if (popup) {
+            console.log('Popup found, will show in 0.5 seconds');
+            setTimeout(() => {
+                popup.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                console.log('Popup should be visible now');
+            }, 500);
+        } else {
+            console.error('Popup element not found in DOM!');
+        }
+    }
+    
+    // Try immediately if DOM is ready
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(initPopup, 100);
+    } else {
+        window.addEventListener('load', initPopup);
+        document.addEventListener('DOMContentLoaded', initPopup);
+    }
+    
+    // Also call the original function
+    window.addEventListener('load', showPopup);
+})();
 
