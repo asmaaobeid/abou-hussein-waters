@@ -277,6 +277,24 @@ body {
     background: var(--white);
 }
 
+.size-category {
+    margin-bottom: 4rem;
+}
+
+.size-category:last-child {
+    margin-bottom: 0;
+}
+
+.category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--light-bg);
+}
+
 .section-title {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
@@ -827,16 +845,16 @@ body {
 
 /* Popup Modal Wizard */
 .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3000;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0, 0, 0, 0.8) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 9999 !important;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
