@@ -75,14 +75,14 @@ cartButtons.forEach(button => {
         const productName = productCard.querySelector('h3').textContent;
         
         cartCount++;
-        showToast(`Added ${productName} to cart!`);
+        showToast(`تمت إضافة ${productName} إلى السلة`);
         
         // Add animation
-        button.textContent = 'Added!';
+        button.textContent = 'تمت الإضافة';
         button.style.background = '#6b8e6b';
         
         setTimeout(() => {
-            button.textContent = 'Add to Cart';
+            button.textContent = 'أضف إلى السلة';
             button.style.background = '';
         }, 2000);
     });
@@ -91,21 +91,23 @@ cartButtons.forEach(button => {
 // Contact Form
 const contactForm = document.getElementById('contactForm');
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    // Simple validation
-    if (name && email && message) {
-        showToast('Thank you! Your message has been sent. We\'ll get back to you soon!');
-        contactForm.reset();
-    } else {
-        showToast('Please fill in all required fields.');
-    }
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        // Simple validation
+        if (name && email && message) {
+            showToast('شكرا لك، تم إرسال رسالتك بنجاح وسنتواصل معك قريبا');
+            contactForm.reset();
+        } else {
+            showToast('يرجى تعبئة جميع الحقول المطلوبة');
+        }
+    });
+}
 
 // Newsletter Form
 const newsletterForms = document.querySelectorAll('.newsletter-form');
@@ -115,7 +117,7 @@ newsletterForms.forEach(form => {
         e.preventDefault();
         const email = form.querySelector('input[type="email"]').value;
         if (email) {
-            showToast('Thank you for subscribing!');
+            showToast('شكرا لاشتراكك في النشرة البريدية');
             form.reset();
         }
     });
