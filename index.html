@@ -15,8 +15,8 @@
     <meta property="og:image:type" content="image/jpeg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://abou-hussein-waters.earglow.workers.dev/og-image.jpg">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="og-image.jpg">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -25,13 +25,14 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <i class="fas fa-spa"></i>
-                <span data-i18n="brand">مياه أبو حسين</span>
-            </div>
+            <a href="#home" class="nav-logo">
+                <img src="images/logo-horizontal.png" alt="أبو حسين" width="180" height="60">
+                <span class="nav-logo-text" data-i18n="brand">أبو حسين</span>
+            </a>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link" data-i18n="nav.home">الرئيسية</a></li>
                 <li><a href="#products" class="nav-link" data-i18n="nav.products">المنتجات</a></li>
+                <li><a href="#story" class="nav-link" data-i18n="nav.story">الفيديو</a></li>
                 <li><a href="#about" class="nav-link" data-i18n="nav.about">من نحن</a></li>
                 <li><a href="#benefits" class="nav-link" data-i18n="nav.benefits">الفوائد</a></li>
                 <li><a href="#gallery" class="nav-link" data-i18n="nav.gallery">المعرض</a></li>
@@ -52,21 +53,28 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-media">
+            <img class="hero-poster" src="images/logo-emblem.png" alt="">
+            <video class="hero-video" autoplay muted loop playsinline poster="images/logo-emblem.png">
+                <source src="images/hero-rose.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class="hero-overlay"></div>
+        <div class="floating-petals" aria-hidden="true">
+            <div class="petal petal-1"></div>
+            <div class="petal petal-2"></div>
+            <div class="petal petal-3"></div>
+            <div class="petal petal-4"></div>
+            <div class="petal petal-5"></div>
+        </div>
         <div class="hero-content">
+            <img class="hero-brand" src="images/logo-wordmark.png" alt="أبو حسين - ماء الورد والزهر" width="360" height="200">
             <h1 class="hero-title" data-i18n="hero.title">نقاء الطبيعة في كل قطرة</h1>
             <p class="hero-subtitle" data-i18n-html="hero.subtitle">ماء الزهر وماء الورد المقطر يدويا<br>محضّر بحب وعلى أصول الطبيعة</p>
             <div class="hero-buttons">
                 <a href="#products" class="btn btn-primary" data-i18n="hero.explore">استكشف المنتجات</a>
                 <a href="https://wa.me/96176301765" target="_blank" class="btn btn-secondary" data-i18n="hero.orderWhatsapp">اطلب عبر واتساب</a>
             </div>
-        </div>
-        <div class="floating-petals">
-            <div class="petal petal-1"></div>
-            <div class="petal petal-2"></div>
-            <div class="petal petal-3"></div>
-            <div class="petal petal-4"></div>
-            <div class="petal petal-5"></div>
         </div>
     </section>
 
@@ -76,9 +84,9 @@
             <h2 class="section-title" data-i18n="products.title">مجموعتنا المميزة</h2>
             <p class="section-subtitle" data-i18n="products.subtitle">طبيعي 100% • مصنوع يدويا • مياه أبو حسين</p>
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card reveal">
                     <div class="product-image">
-                        <i class="fas fa-orange"></i>
+                        <img src="images/logo-emblem.png" alt="" loading="lazy">
                     </div>
                     <div class="product-content">
                         <h3 data-i18n="products.orangeBlossom">ماء الزهر</h3>
@@ -91,9 +99,9 @@
                     </div>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card reveal">
                     <div class="product-image">
-                        <i class="fas fa-orange"></i>
+                        <img src="images/logo-emblem.png" alt="" loading="lazy">
                     </div>
                     <div class="product-content">
                         <h3 data-i18n="products.roseWater">ماء الورد</h3>
@@ -234,13 +242,27 @@
         </div>
     </section>
 
+    <!-- Story Video Section -->
+    <section id="story" class="story-video">
+        <div class="container reveal">
+            <h2 class="section-title" data-i18n="story.title">من الزهرة إلى القطرة</h2>
+            <p class="section-subtitle" data-i18n="story.subtitle">شاهد روح علامتنا: ورد وزهر ونقاء في كل حركة</p>
+            <div class="story-video-frame">
+                <video autoplay muted loop playsinline controls poster="images/logo-emblem.png">
+                    <source src="images/hero-rose.mp4" type="video/mp4">
+                </video>
+                <div class="story-shimmer" aria-hidden="true"></div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-image">
+                <div class="about-image reveal">
                     <div class="image-placeholder">
-                        <i class="fas fa-spa"></i>
+                        <img class="logo-emblem-float" src="images/logo-emblem.png" alt="أبو حسين">
                         <div class="decorative-circle circle-1"></div>
                         <div class="decorative-circle circle-2"></div>
                     </div>
@@ -361,7 +383,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3><i class="fas fa-spa"></i> <span data-i18n="brand">مياه أبو حسين</span></h3>
+                    <img class="footer-brand-logo" src="images/logo-wordmark.png" alt="أبو حسين">
                     <p data-i18n="footer.tagline">خلاصات طبيعية نقية مصنوعة بعناية لتلائم احتياجاتك اليومية في الجمال والعناية والانتعاش.</p>
                 </div>
                 <div class="footer-section">
@@ -411,7 +433,7 @@
             </div>
             <div class="wizard-image-container">
                 <div class="wizard-product-image">
-                    <i class="fas fa-orange"></i>
+                    <img src="images/logo-emblem.png" alt="">
                     <div class="image-glow"></div>
                 </div>
                 <div class="wizard-image-badge" data-i18n="popup.bestSeller">الأكثر طلبا</div>

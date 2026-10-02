@@ -3,12 +3,15 @@ const translations = {
     ar: {
         'meta.title': 'مياه أبو حسين - ماء الزهر وماء الورد الطبيعي',
         'meta.description': 'ماء الزهر وماء الورد الطبيعي المقطر يدويا من مياه أبو حسين',
-        brand: 'مياه أبو حسين',
+        brand: 'أبو حسين',
         'nav.home': 'الرئيسية',
         'nav.products': 'المنتجات',
+        'nav.story': 'الفيديو',
         'nav.about': 'من نحن',
         'nav.benefits': 'الفوائد',
         'nav.gallery': 'المعرض',
+        'story.title': 'من الزهرة إلى القطرة',
+        'story.subtitle': 'شاهد روح علامتنا: ورد وزهر ونقاء في كل حركة',
         'hero.title': 'نقاء الطبيعة في كل قطرة',
         'hero.subtitle': 'ماء الزهر وماء الورد المقطر يدويا<br>محضّر بحب وعلى أصول الطبيعة',
         'hero.explore': 'استكشف المنتجات',
@@ -95,12 +98,15 @@ const translations = {
     en: {
         'meta.title': 'Abou Hussein Waters - Natural Orange Blossom & Rose Water',
         'meta.description': 'Hand-distilled natural orange blossom and rose water from Abou Hussein Waters',
-        brand: 'Abou Hussein Waters',
+        brand: 'Abu Hussein',
         'nav.home': 'Home',
         'nav.products': 'Products',
+        'nav.story': 'Video',
         'nav.about': 'About',
         'nav.benefits': 'Benefits',
         'nav.gallery': 'Gallery',
+        'story.title': 'From flower to drop',
+        'story.subtitle': 'Feel the brand: rose, blossom, and purity in motion',
         'hero.title': 'Nature\'s purity in every drop',
         'hero.subtitle': 'Hand-distilled orange blossom and rose water<br>Crafted with love, the natural way',
         'hero.explore': 'Explore products',
@@ -394,12 +400,12 @@ function showToast(message) {
     }, 3000);
 }
 
-// Parallax effect for hero section
+// Soft parallax on hero media only
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    const media = document.querySelector('.hero-media');
+    if (media && scrolled < window.innerHeight) {
+        media.style.transform = `translateY(${scrolled * 0.25}px)`;
     }
 });
 
@@ -443,14 +449,36 @@ productCards.forEach(card => {
 
 // Initialize on load
 window.addEventListener('load', () => {
-    // Add fade-in to hero
-    document.querySelector('.hero-content').classList.add('fade-in');
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) heroContent.classList.add('fade-in');
     
     // Animate floating petals
     const petals = document.querySelectorAll('.petal');
     petals.forEach((petal, index) => {
         petal.style.animationDelay = `${index * 2}s`;
     });
+
+    // Ensure hero video plays on mobile policies
+    const heroVideo = document.querySelector('.hero-video');
+    if (heroVideo) {
+        heroVideo.play().catch(() => {});
+    }
+});
+
+// Scroll reveal animations
+const revealEls = document.querySelectorAll('.reveal, .product-card, .benefit-card, .gallery-item, .section-title');
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible', 'reveal');
+            revealObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach((el) => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
 });
 
 // Add active class to nav links on click

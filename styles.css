@@ -5,20 +5,22 @@
 }
 
 :root {
-    --primary-color: #d4a574;
-    --secondary-color: #c9a96f;
-    --accent-color: #e8c4a0;
-    --rose-pink: #f4a5c7;
-    --lavender: #b19cd9;
-    --dark-green: #6b8e6b;
-    --light-bg: #faf8f5;
+    --primary-color: #2b4218;
+    --secondary-color: #c5a059;
+    --accent-color: #d8b56a;
+    --rose-pink: #d9789a;
+    --lavender: #8fa37a;
+    --dark-green: #1e3014;
+    --light-bg: #f7f3ea;
+    --cream: #f7f3ea;
     --white: #ffffff;
-    --text-dark: #2c2c2c;
-    --text-light: #666666;
-    --gradient-1: linear-gradient(135deg, #f4a5c7 0%, #d4a574 100%);
-    --gradient-2: linear-gradient(135deg, #b19cd9 0%, #d4a574 100%);
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
+    --text-dark: #1e3014;
+    --text-light: #5a6550;
+    --gradient-1: linear-gradient(135deg, #1e3014 0%, #2b4218 45%, #3d5a28 100%);
+    --gradient-2: linear-gradient(135deg, #2b4218 0%, #c5a059 100%);
+    --gradient-hero: linear-gradient(180deg, rgba(15, 24, 10, 0.55) 0%, rgba(30, 48, 20, 0.72) 100%);
+    --shadow: 0 10px 30px rgba(30, 48, 20, 0.12);
+    --shadow-hover: 0 15px 40px rgba(30, 48, 20, 0.18);
 }
 
 body {
@@ -64,14 +66,27 @@ html[dir="ltr"] body {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--primary-color);
     font-family: 'Cairo', sans-serif;
+    text-decoration: none;
 }
 
-.nav-logo i {
-    font-size: 1.8rem;
+.nav-logo img {
+    height: 48px;
+    width: auto;
+    display: block;
+}
+
+.nav-logo-text {
+    display: none;
+}
+
+@media (min-width: 900px) {
+    .nav-logo img {
+        height: 52px;
+    }
 }
 
 .nav-menu {
@@ -117,10 +132,10 @@ html[dir="ltr"] body {
     display: inline-flex;
     align-items: center;
     gap: 2px;
-    border: 1px solid rgba(212, 165, 116, 0.45);
+    border: 1px solid rgba(197, 160, 89, 0.55);
     border-radius: 999px;
     padding: 2px;
-    background: rgba(250, 248, 245, 0.9);
+    background: rgba(247, 243, 234, 0.95);
 }
 
 .lang-btn {
@@ -169,45 +184,88 @@ html[dir="ltr"] .nav-link::after {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--gradient-1);
+    background: var(--dark-green);
     overflow: hidden;
     text-align: center;
     color: var(--white);
 }
 
-.hero-overlay {
+.hero-media {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-video,
+.hero-poster {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    animation: heroKenBurns 22s ease-in-out infinite alternate;
+}
+
+.hero-poster {
+    z-index: 0;
+}
+
+.hero-video {
     z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-hero);
+    z-index: 2;
 }
 
 .hero-content {
     position: relative;
-    z-index: 2;
-    animation: fadeInUp 1s ease;
+    z-index: 3;
+    max-width: 720px;
+    padding: 6rem 1.5rem 3rem;
+}
+
+.hero-brand {
+    width: min(340px, 78vw);
+    height: auto;
+    margin: 0 auto 1.25rem;
+    /* Wordmark is dark green — lift it to soft gold/cream on the dark hero */
+    filter:
+        brightness(0) invert(1)
+        drop-shadow(0 2px 0 rgba(197, 160, 89, 0.35))
+        drop-shadow(0 10px 28px rgba(0, 0, 0, 0.45));
+    animation: brandReveal 1.2s ease both;
+}
+
+.footer-brand-logo {
+    filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(5deg);
 }
 
 .hero-title {
     font-family: 'Cairo', sans-serif;
-    font-size: 4rem;
+    font-size: clamp(2rem, 5vw, 3.4rem);
     font-weight: 700;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.85rem;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+    animation: fadeInUp 1s ease 0.2s both;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2.4vw, 1.25rem);
     margin-bottom: 2rem;
     font-weight: 300;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    animation: fadeInUp 1s ease 0.35s both;
 }
 
 .hero-buttons {
@@ -215,12 +273,13 @@ html[dir="ltr"] .nav-link::after {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+    animation: fadeInUp 1s ease 0.5s both;
 }
 
 .btn {
     padding: 15px 35px;
     border: none;
-    border-radius: 50px;
+    border-radius: 4px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -232,20 +291,21 @@ html[dir="ltr"] .nav-link::after {
 }
 
 .btn-primary {
-    background: var(--white);
-    color: var(--primary-color);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    background: var(--secondary-color);
+    color: var(--dark-green);
+    box-shadow: 0 8px 24px rgba(197, 160, 89, 0.35);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    background: var(--accent-color);
+    box-shadow: 0 12px 28px rgba(197, 160, 89, 0.45);
 }
 
 .btn-secondary {
     background: transparent;
     color: var(--white);
-    border: 2px solid var(--white);
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
 }
 
 .btn-secondary:hover {
@@ -253,49 +313,58 @@ html[dir="ltr"] .nav-link::after {
     color: var(--primary-color);
 }
 
-/* Floating Petals */
+/* Floating droplets / petals */
 .floating-petals {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
+    inset: 0;
+    z-index: 2;
     overflow: hidden;
+    pointer-events: none;
 }
 
 .petal {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50% 0 50% 0;
-    animation: float 15s infinite ease-in-out;
+    width: 14px;
+    height: 18px;
+    background: radial-gradient(circle at 30% 30%, #f2d48a, #c5a059 70%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: dropletFall 12s infinite ease-in;
+    opacity: 0.55;
+    box-shadow: 0 0 12px rgba(197, 160, 89, 0.35);
 }
 
-.petal-1 {
-    left: 10%;
-    animation-delay: 0s;
+.petal-1 { left: 12%; animation-delay: 0s; }
+.petal-2 { left: 28%; animation-delay: 2.2s; width: 10px; height: 14px; }
+.petal-3 { left: 48%; animation-delay: 4s; }
+.petal-4 { left: 68%; animation-delay: 1.4s; width: 12px; height: 16px; }
+.petal-5 { left: 86%; animation-delay: 3.3s; }
+
+@keyframes dropletFall {
+    0% {
+        transform: translateY(-10vh) scale(0.7);
+        opacity: 0;
+    }
+    12% { opacity: 0.7; }
+    100% {
+        transform: translateY(110vh) scale(1);
+        opacity: 0;
+    }
 }
 
-.petal-2 {
-    left: 30%;
-    animation-delay: 2s;
+@keyframes heroKenBurns {
+    from { transform: scale(1.05); }
+    to { transform: scale(1.18); }
 }
 
-.petal-3 {
-    left: 50%;
-    animation-delay: 4s;
-}
-
-.petal-4 {
-    left: 70%;
-    animation-delay: 6s;
-}
-
-.petal-5 {
-    left: 90%;
-    animation-delay: 8s;
+@keyframes brandReveal {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.94);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 @keyframes float {
@@ -303,16 +372,85 @@ html[dir="ltr"] .nav-link::after {
         transform: translateY(100vh) rotate(0deg);
         opacity: 0;
     }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
     100% {
         transform: translateY(-100px) rotate(360deg);
         opacity: 0;
     }
+}
+
+/* Scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Story / video section */
+.story-video {
+    padding: 5rem 0;
+    background: var(--dark-green);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.story-video .section-title,
+.story-video .section-subtitle {
+    color: var(--white);
+}
+
+.story-video .section-title::after {
+    background: var(--secondary-color);
+}
+
+.story-video-frame {
+    position: relative;
+    max-width: 960px;
+    margin: 2.5rem auto 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.story-video-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.story-shimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(197, 160, 89, 0.15) 50%, transparent 70%);
+    animation: shimmerSweep 5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes shimmerSweep {
+    0%, 100% { transform: translateX(-40%); opacity: 0; }
+    40%, 60% { opacity: 1; }
+    100% { transform: translateX(40%); }
+}
+
+.logo-emblem-float {
+    animation: emblemFloat 5s ease-in-out infinite;
+    filter: drop-shadow(0 16px 30px rgba(197, 160, 89, 0.25));
+}
+
+@keyframes emblemFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
 }
 
 /* Products Section */
@@ -351,6 +489,16 @@ html[dir="ltr"] .nav-link::after {
     text-align: center;
     margin-bottom: 1rem;
     color: var(--text-dark);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 2px;
+    margin: 0.85rem auto 0;
+    background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
 }
 
 .section-subtitle {
@@ -383,7 +531,9 @@ html[dir="ltr"] .nav-link::after {
 
 .product-image {
     height: 250px;
-    background: var(--gradient-1);
+    background:
+        radial-gradient(circle at 50% 40%, rgba(197, 160, 89, 0.25), transparent 55%),
+        linear-gradient(160deg, #1a2812 0%, #2b4218 55%, #3a5224 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -392,8 +542,15 @@ html[dir="ltr"] .nav-link::after {
 
 .product-image i {
     font-size: 5rem;
-    color: var(--white);
-    opacity: 0.8;
+    color: var(--secondary-color);
+    opacity: 0.85;
+}
+
+.product-image img {
+    width: 150px;
+    height: auto;
+    object-fit: contain;
+    animation: emblemFloat 5.5s ease-in-out infinite;
 }
 
 .product-badge {
@@ -491,21 +648,31 @@ html[dir="ltr"] .nav-link::after {
 }
 
 .image-placeholder {
-    height: 400px;
-    background: var(--gradient-2);
-    border-radius: 20px;
+    height: 420px;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(197, 160, 89, 0.28), transparent 50%),
+        linear-gradient(160deg, #111a0c 0%, #1e3014 60%, #2b4218 100%);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(197, 160, 89, 0.35);
 }
 
 .image-placeholder i {
     font-size: 8rem;
-    color: var(--white);
+    color: var(--secondary-color);
     opacity: 0.8;
     z-index: 2;
+}
+
+.image-placeholder img {
+    width: min(280px, 70%);
+    height: auto;
+    z-index: 2;
+    position: relative;
 }
 
 .decorative-circle {
@@ -746,7 +913,7 @@ html[dir="ltr"] .nav-link::after {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+    box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.18);
 }
 
 .form-group textarea {
@@ -771,7 +938,15 @@ html[dir="ltr"] .nav-link::after {
     font-family: 'Cairo', sans-serif;
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.footer-brand-logo {
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    display: block;
 }
 
 .footer-section p {
@@ -1037,10 +1212,10 @@ html[dir="ltr"] .popup-close {
 }
 
 .wizard-product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+    width: 78%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0;
     z-index: 2;
     position: relative;
 }
