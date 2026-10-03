@@ -722,16 +722,9 @@ html[dir="ltr"] .nav-link::after {
     gap: 0.75rem;
 }
 
-.size-visual.size-ob {
-    background:
-        radial-gradient(circle at 50% 40%, rgba(255, 214, 140, 0.28), transparent 55%),
-        linear-gradient(160deg, #1a2812 0%, #2b4218 55%, #3a5224 100%);
-}
-
+.size-visual.size-ob,
 .size-visual.size-rw {
-    background:
-        radial-gradient(circle at 50% 40%, rgba(217, 120, 154, 0.28), transparent 55%),
-        linear-gradient(160deg, #1a1418 0%, #2b1e24 55%, #3a2a30 100%);
+    background: #ffffff;
 }
 
 .size-badge {
