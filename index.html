@@ -83,6 +83,21 @@
         </div>
     </section>
 
+    <!-- Umrah marketing promo (top) -->
+    <section id="umrah" class="promo-umrah">
+        <div class="promo-umrah-media">
+            <img src="images/promo-umrah-rose.jpg" alt="بخاخ ماء الورد أبو حسين" loading="lazy">
+        </div>
+        <div class="promo-umrah-overlay"></div>
+        <div class="promo-umrah-content reveal">
+            <p class="promo-umrah-eyebrow" data-i18n="umrah.eyebrow">بخاخ الورد الأصلي</p>
+            <h2 class="promo-umrah-title" data-i18n="umrah.title">عمرتك قريبة؟ ما إلك إلا بخاخ الورد الأصلي</h2>
+            <p class="promo-umrah-lead" data-i18n="umrah.lead">لتعيد حيويتك وطاقتك</p>
+            <p class="promo-umrah-text" data-i18n="umrah.text">كتير من الزباين انغرموا بالموضوع، وهلأ وقتك أنت تجرب الإحساس</p>
+            <a href="https://wa.me/96176301765" target="_blank" class="btn btn-primary" data-i18n="umrah.cta">اطلب بخاخ الورد الآن</a>
+        </div>
+    </section>
+
     <!-- Products Section -->
     <section id="products" class="products">
         <div class="container">
@@ -119,21 +134,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Umrah marketing promo -->
-    <section id="umrah" class="promo-umrah">
-        <div class="promo-umrah-media">
-            <img src="images/promo-umrah-rose.jpg" alt="بخاخ ماء الورد أبو حسين" loading="lazy">
-        </div>
-        <div class="promo-umrah-overlay"></div>
-        <div class="promo-umrah-content reveal">
-            <p class="promo-umrah-eyebrow" data-i18n="umrah.eyebrow">بخاخ الورد الأصلي</p>
-            <h2 class="promo-umrah-title" data-i18n="umrah.title">عمرتك قريبة؟ ما إلك إلا بخاخ الورد الأصلي</h2>
-            <p class="promo-umrah-lead" data-i18n="umrah.lead">لتعيد حيويتك وطاقتك</p>
-            <p class="promo-umrah-text" data-i18n="umrah.text">كتير من الزباين انغرموا بالموضوع، وهلأ وقتك أنت تجرب الإحساس</p>
-            <a href="https://wa.me/96176301765" target="_blank" class="btn btn-primary" data-i18n="umrah.cta">اطلب بخاخ الورد الآن</a>
         </div>
     </section>
 
@@ -437,47 +437,24 @@
     <!-- Toast Notification -->
     <div id="toast" class="toast"></div>
 
-    <!-- New Item Popup Wizard -->
+    <!-- Umrah Popup -->
     <div id="newItemPopup" class="popup-overlay">
-        <div class="popup-content wizard-popup">
-            <button class="popup-close" onclick="closePopup()" aria-label="Close">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="wizard-badge">
-                <i class="fas fa-sparkles"></i>
-                <span data-i18n="popup.newProduct">منتج جديد</span>
-            </div>
-            <div class="wizard-image-container wizard-photo">
-                <img class="wizard-bottle" src="images/product-rose-spray.jpg" alt="بخاخ ماء الورد أبو حسين 250 مل">
-                <div class="wizard-image-badge" data-i18n="popup.bestSeller">الأكثر طلبا</div>
+        <div class="popup-content wizard-popup umrah-popup">
+            <div class="wizard-image-container wizard-photo umrah-popup-media">
+                <img class="wizard-bottle" src="images/promo-umrah-rose.jpg" alt="بخاخ الورد الأصلي للعمرة">
+                <div class="wizard-image-badge" data-i18n="nav.umrah">العمرة</div>
             </div>
             <div class="wizard-content">
-                <h2 data-i18n="products.roseWater">ماء الورد</h2>
-                <p class="wizard-description" data-i18n="popup.description">بخاخ 250 مل مناسب لكل أنواع البشرة ولمختلف الاستخدامات اليومية. منتج طبيعي منعش يساعد على ترطيب البشرة ويمنحك رائحة ورد لطيفة ومميزة.</p>
-                <div class="wizard-features">
-                    <div class="wizard-feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span data-i18n="popup.feature1">طبيعي وعضوي 100%</span>
-                    </div>
-                    <div class="wizard-feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span data-i18n="popup.feature2">من دون مواد حافظة</span>
-                    </div>
-                    <div class="wizard-feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span data-i18n="popup.feature3">مناسب لكل أنواع البشرة</span>
-                    </div>
-                    <div class="wizard-feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span data-i18n="popup.feature4">مصنوع يدويا بعناية</span>
-                    </div>
-                </div>
+                <p class="umrah-popup-eyebrow" data-i18n="umrah.eyebrow">بخاخ الورد الأصلي</p>
+                <h2 data-i18n="umrah.title">عمرتك قريبة؟ ما إلك إلا بخاخ الورد الأصلي</h2>
+                <p class="wizard-description" data-i18n="umrah.lead">لتعيد حيويتك وطاقتك</p>
+                <p class="wizard-description umrah-popup-text" data-i18n="umrah.text">كتير من الزباين انغرموا بالموضوع، وهلأ وقتك أنت تجرب الإحساس</p>
                 <div class="wizard-buttons">
-                    <a href="#products" class="btn btn-primary" onclick="closePopup()">
-                        <i class="fas fa-shopping-bag"></i> <span data-i18n="popup.viewProducts">عرض المنتجات</span>
-                    </a>
                     <a href="https://wa.me/96176301765" target="_blank" class="btn btn-whatsapp" onclick="closePopup()">
-                        <i class="fab fa-whatsapp"></i> <span data-i18n="hero.orderWhatsapp">اطلب عبر واتساب</span>
+                        <i class="fab fa-whatsapp"></i> <span data-i18n="umrah.cta">اطلب بخاخ الورد الآن</span>
+                    </a>
+                    <a href="#umrah" class="btn btn-primary" onclick="closePopup()">
+                        <span data-i18n="nav.umrah">العمرة</span>
                     </a>
                 </div>
             </div>
