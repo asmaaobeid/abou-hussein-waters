@@ -37,7 +37,7 @@
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link" data-i18n="nav.home">الرئيسية</a></li>
                 <li><a href="#products" class="nav-link" data-i18n="nav.products">المنتجات</a></li>
-                <li><a href="#umrah" class="nav-link" data-i18n="nav.umrah">العمرة</a></li>
+                <li><a href="#home" class="nav-link" data-i18n="nav.umrah">العمرة</a></li>
                 <li><a href="#about" class="nav-link" data-i18n="nav.about">من نحن</a></li>
                 <li><a href="#benefits" class="nav-link" data-i18n="nav.benefits">الفوائد</a></li>
                 <li><a href="#gallery" class="nav-link" data-i18n="nav.gallery">المعرض</a></li>
@@ -56,13 +56,10 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <!-- Hero / Umrah promo -->
+    <section id="home" class="hero hero-umrah">
         <div class="hero-media">
-            <img class="hero-poster" src="images/logo-emblem.png" alt="">
-            <video class="hero-video" autoplay muted loop playsinline poster="images/logo-emblem.png">
-                <source src="images/hero-rose.mp4" type="video/mp4">
-            </video>
+            <img class="hero-poster" src="images/promo-umrah-rose.jpg" alt="بخاخ الورد الأصلي للعمرة">
         </div>
         <div class="hero-overlay"></div>
         <div class="floating-petals" aria-hidden="true">
@@ -73,28 +70,14 @@
             <div class="petal petal-5"></div>
         </div>
         <div class="hero-content">
-            <img class="hero-brand" src="images/logo-full.png" alt="أبو حسين - ماء الورد والزهر" width="320" height="320">
-            <h1 class="hero-title" data-i18n="hero.title">نقاء الطبيعة في كل قطرة</h1>
-            <p class="hero-subtitle" data-i18n-html="hero.subtitle">ماء الزهر وماء الورد المقطر يدويا<br>محضّر بحب وعلى أصول الطبيعة</p>
-            <div class="hero-buttons">
-                <a href="#products" class="btn btn-primary" data-i18n="hero.explore">استكشف المنتجات</a>
-                <a href="https://wa.me/96176301765" target="_blank" class="btn btn-secondary" data-i18n="hero.orderWhatsapp">اطلب عبر واتساب</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Umrah marketing promo (top) -->
-    <section id="umrah" class="promo-umrah">
-        <div class="promo-umrah-media">
-            <img src="images/promo-umrah-rose.jpg" alt="بخاخ ماء الورد أبو حسين" loading="lazy">
-        </div>
-        <div class="promo-umrah-overlay"></div>
-        <div class="promo-umrah-content reveal">
             <p class="promo-umrah-eyebrow" data-i18n="umrah.eyebrow">بخاخ الورد الأصلي</p>
-            <h2 class="promo-umrah-title" data-i18n="umrah.title">عمرتك قريبة؟ ما إلك إلا بخاخ الورد الأصلي</h2>
+            <h1 class="hero-title" data-i18n="umrah.title">عمرتك قريبة؟ ما إلك إلا بخاخ الورد الأصلي</h1>
             <p class="promo-umrah-lead" data-i18n="umrah.lead">لتعيد حيويتك وطاقتك</p>
-            <p class="promo-umrah-text" data-i18n="umrah.text">كتير من الزباين انغرموا بالموضوع، وهلأ وقتك أنت تجرب الإحساس</p>
-            <a href="https://wa.me/96176301765" target="_blank" class="btn btn-primary" data-i18n="umrah.cta">اطلب بخاخ الورد الآن</a>
+            <p class="hero-subtitle" data-i18n="umrah.text">كتير من الزباين انغرموا بالموضوع، وهلأ وقتك أنت تجرب الإحساس</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/96176301765" target="_blank" class="btn btn-primary" data-i18n="umrah.cta">اطلب بخاخ الورد الآن</a>
+                <a href="#products" class="btn btn-secondary" data-i18n="hero.explore">استكشف المنتجات</a>
+            </div>
         </div>
     </section>
 
@@ -453,8 +436,8 @@
                     <a href="https://wa.me/96176301765" target="_blank" class="btn btn-whatsapp" onclick="closePopup()">
                         <i class="fab fa-whatsapp"></i> <span data-i18n="umrah.cta">اطلب بخاخ الورد الآن</span>
                     </a>
-                    <a href="#umrah" class="btn btn-primary" onclick="closePopup()">
-                        <span data-i18n="nav.umrah">العمرة</span>
+                    <a href="#products" class="btn btn-primary" onclick="closePopup()">
+                        <span data-i18n="hero.explore">استكشف المنتجات</span>
                     </a>
                 </div>
             </div>

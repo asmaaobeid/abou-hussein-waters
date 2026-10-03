@@ -233,13 +233,17 @@ html[dir="ltr"] .nav-link::after {
     padding: 6rem 1.5rem 3rem;
 }
 
-.hero-brand {
-    width: min(260px, 62vw);
-    height: auto;
-    margin: 0 auto 1.25rem;
-    border-radius: 8px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-    animation: brandReveal 1.2s ease both;
+.hero-umrah .hero-poster {
+    object-position: center 30%;
+}
+
+.hero-umrah .hero-content .promo-umrah-eyebrow {
+    animation: fadeInUp 1s ease both;
+}
+
+.hero-umrah .hero-content .promo-umrah-lead {
+    margin-bottom: 0.85rem;
+    animation: fadeInUp 1s ease 0.25s both;
 }
 
 .footer-brand-logo {
