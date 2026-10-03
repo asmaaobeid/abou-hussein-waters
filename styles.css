@@ -21,6 +21,54 @@
     --gradient-hero: linear-gradient(180deg, rgba(15, 24, 10, 0.55) 0%, rgba(30, 48, 20, 0.72) 100%);
     --shadow: 0 10px 30px rgba(30, 48, 20, 0.12);
     --shadow-hover: 0 15px 40px rgba(30, 48, 20, 0.18);
+    --topbar-height: 42px;
+}
+
+/* Top marketing bar */
+.top-promo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100;
+    height: var(--topbar-height);
+    background: linear-gradient(90deg, #1e3014 0%, #2b4218 50%, #3a5224 100%);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-promo-link {
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 0 1rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    transition: color 0.25s ease;
+}
+
+.top-promo-link:hover {
+    color: var(--secondary-color);
+}
+
+@media (max-width: 640px) {
+    :root {
+        --topbar-height: 48px;
+    }
+
+    .top-promo-link {
+        font-size: 0.78rem;
+        white-space: normal;
+        line-height: 1.35;
+        padding: 0 0.75rem;
+    }
 }
 
 body {
@@ -44,7 +92,7 @@ html[dir="ltr"] body {
 /* Navigation */
 .navbar {
     position: fixed;
-    top: 0;
+    top: var(--topbar-height);
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -230,7 +278,7 @@ html[dir="ltr"] .nav-link::after {
     position: relative;
     z-index: 3;
     max-width: 720px;
-    padding: 6rem 1.5rem 3rem;
+    padding: calc(6rem + var(--topbar-height)) 1.5rem 3rem;
 }
 
 .hero-umrah .hero-poster {
@@ -1645,7 +1693,7 @@ html[dir="ltr"] .popup-close {
     .nav-menu {
         position: fixed;
         right: -100%;
-        top: 70px;
+        top: calc(70px + var(--topbar-height));
         flex-direction: column;
         background: var(--white);
         width: 100%;
