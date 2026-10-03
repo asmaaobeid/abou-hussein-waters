@@ -1395,12 +1395,14 @@ html[dir="ltr"] .toast.show {
     padding: 0;
     max-width: 380px;
     width: 90%;
+    max-height: min(92vh, 680px);
     position: relative;
     text-align: center;
     transform: scale(0.8);
     transition: transform 0.3s ease;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .popup-overlay.show .popup-content {
@@ -1440,7 +1442,7 @@ html[dir="ltr"] .popup-close {
 /* Wizard Popup Styles */
 .wizard-popup {
     padding: 0;
-    height: 400px;
+    height: auto;
 }
 
 .wizard-badge {
@@ -1507,10 +1509,11 @@ html[dir="ltr"] .popup-close {
 }
 
 .wizard-photo {
-    height: 260px;
+    height: 200px;
     overflow: hidden;
     position: relative;
     background: #ffffff;
+    flex-shrink: 0;
 }
 
 .wizard-bottle {
@@ -1574,7 +1577,15 @@ html[dir="ltr"] .popup-close {
 }
 
 .wizard-content {
-    padding: 1.3rem;
+    padding: 1.3rem 1.3rem 1.5rem;
+}
+
+.umrah-popup .wizard-content {
+    padding-bottom: 1.75rem;
+}
+
+.umrah-popup .wizard-buttons {
+    margin-top: 0.5rem;
 }
 
 .wizard-content h2 {
