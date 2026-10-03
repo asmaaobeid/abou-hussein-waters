@@ -750,6 +750,28 @@ html[dir="ltr"] .nav-link::after {
     align-items: center;
 }
 
+.about-content.about-content-text-only {
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content-text-only .about-text {
+    text-align: center;
+}
+
+.about-content-text-only .about-text p {
+    text-align: inherit;
+}
+
+html[dir="rtl"] .about-content-text-only .about-text p {
+    text-align: right;
+}
+
+html[dir="ltr"] .about-content-text-only .about-text p {
+    text-align: left;
+}
+
 .about-image {
     position: relative;
 }
