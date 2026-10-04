@@ -286,9 +286,9 @@ html[dir="ltr"] .nav-link::after {
 }
 
 .hero-umrah .hero-poster {
-    /* Full-bleed: no black side bars. Use a wide photo (see note below). */
+    /* Full-bleed wide Umrah photo (~16:9) */
     object-fit: cover;
-    object-position: center 40%;
+    object-position: center center;
     animation: none;
     transform: scale(1);
 }
