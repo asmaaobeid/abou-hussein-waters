@@ -1559,12 +1559,13 @@ html[dir="ltr"] .popup-close {
 }
 
 .umrah-popup-media {
+    height: 240px;
     background: #1a2812;
 }
 
 .umrah-popup-media .wizard-bottle {
     object-fit: cover;
-    object-position: center 30%;
+    object-position: center center;
     padding: 0;
     background: transparent;
 }
