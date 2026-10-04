@@ -34,6 +34,7 @@ const translations = {
         'feature.noPreservatives': 'من دون مواد حافظة',
         'sizes.title': 'الأحجام المتوفرة',
         'sizes.subtitle': 'اختر الحجم المناسب لاحتياجك اليومي',
+        'sizes.descLabel': 'الوصف',
         'sizes.badge50': '50 مل',
         'sizes.badge100': '100 مل',
         'sizes.badge250': '250 مل',
@@ -138,6 +139,7 @@ const translations = {
         'feature.noPreservatives': 'No preservatives',
         'sizes.title': 'Available sizes',
         'sizes.subtitle': 'Choose the size that fits your daily needs',
+        'sizes.descLabel': 'Description',
         'sizes.badge50': '50 ml',
         'sizes.badge100': '100 ml',
         'sizes.badge250': '250 ml',
@@ -271,6 +273,10 @@ function setLanguage(lang) {
         btn.classList.toggle('active', isActive);
         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
+
+    if (typeof refreshSizeCarouselsLanguage === 'function') {
+        refreshSizeCarouselsLanguage();
+    }
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -281,6 +287,136 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 
 const savedLang = localStorage.getItem('siteLang');
 setLanguage(savedLang === 'en' ? 'en' : 'ar');
+
+// Size carousels (scroll / browse all sizes)
+const sizeCatalog = {
+    orange: [
+        {
+            image: 'images/product-orange-100.jpg',
+            titleKey: 'sizes.ob100',
+            descKey: 'sizes.ob100Desc',
+            badgeKey: 'sizes.badge100'
+        },
+        {
+            image: 'images/product-orange-250.jpg',
+            titleKey: 'sizes.ob250',
+            descKey: 'sizes.ob250Desc',
+            badgeKey: 'sizes.badge250'
+        },
+        {
+            image: 'images/product-orange-500.jpg',
+            titleKey: 'sizes.ob500',
+            descKey: 'sizes.ob500Desc',
+            badgeKey: 'sizes.badge500'
+        }
+    ],
+    rose: [
+        {
+            image: 'images/product-rose-spray.jpg',
+            titleKey: 'sizes.rw50',
+            descKey: 'sizes.rw50Desc',
+            badgeKey: 'sizes.badge50'
+        },
+        {
+            image: 'images/product-rose-100.jpg',
+            titleKey: 'sizes.rw100',
+            descKey: 'sizes.rw100Desc',
+            badgeKey: 'sizes.badge100'
+        },
+        {
+            image: 'images/product-rose-250.jpg',
+            titleKey: 'sizes.rw250',
+            descKey: 'sizes.rw250Desc',
+            badgeKey: 'sizes.badge250'
+        },
+        {
+            image: 'images/product-rose-500.jpg',
+            titleKey: 'sizes.rw500',
+            descKey: 'sizes.rw500Desc',
+            badgeKey: 'sizes.badge500'
+        }
+    ]
+};
+
+const sizeCarouselState = {};
+
+function initSizeCarousels() {
+    document.querySelectorAll('[data-size-carousel]').forEach((root) => {
+        const key = root.getAttribute('data-size-carousel');
+        const items = sizeCatalog[key];
+        if (!items || !items.length) return;
+
+        sizeCarouselState[key] = 0;
+        const thumbs = root.querySelector('[data-size-thumbs]');
+        thumbs.innerHTML = '';
+
+        items.forEach((item, index) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = `size-thumb${key === 'rose' ? ' size-thumb-rose' : ''}`;
+            btn.setAttribute('aria-label', t(item.titleKey));
+            btn.innerHTML = `<img src="${item.image}" alt="" loading="lazy">`;
+            btn.addEventListener('click', () => setSizeCarouselIndex(key, index));
+            thumbs.appendChild(btn);
+        });
+
+        root.querySelector('.size-nav-prev')?.addEventListener('click', () => {
+            const next = (sizeCarouselState[key] - 1 + items.length) % items.length;
+            setSizeCarouselIndex(key, next);
+        });
+        root.querySelector('.size-nav-next')?.addEventListener('click', () => {
+            const next = (sizeCarouselState[key] + 1) % items.length;
+            setSizeCarouselIndex(key, next);
+        });
+
+        setSizeCarouselIndex(key, 0, true);
+    });
+}
+
+function setSizeCarouselIndex(key, index, instant = false) {
+    const items = sizeCatalog[key];
+    const root = document.querySelector(`[data-size-carousel="${key}"]`);
+    if (!root || !items?.[index]) return;
+
+    sizeCarouselState[key] = index;
+    const item = items[index];
+    const img = root.querySelector('[data-size-image]');
+    const title = root.querySelector('[data-size-title]');
+    const desc = root.querySelector('[data-size-desc]');
+    const thumbs = root.querySelectorAll('.size-thumb');
+
+    const apply = () => {
+        img.src = item.image;
+        img.alt = t(item.titleKey);
+        title.textContent = t(item.titleKey);
+        desc.textContent = t(item.descKey);
+        thumbs.forEach((thumb, i) => {
+            thumb.classList.toggle('is-active', i === index);
+            thumb.setAttribute('aria-pressed', i === index ? 'true' : 'false');
+        });
+        const activeThumb = thumbs[index];
+        if (activeThumb) {
+            activeThumb.scrollIntoView({ behavior: instant ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+        }
+        img.classList.remove('is-switching');
+    };
+
+    if (instant) {
+        apply();
+        return;
+    }
+
+    img.classList.add('is-switching');
+    setTimeout(apply, 180);
+}
+
+function refreshSizeCarouselsLanguage() {
+    Object.keys(sizeCarouselState).forEach((key) => {
+        setSizeCarouselIndex(key, sizeCarouselState[key], true);
+    });
+}
+
+initSizeCarousels();
 
 // Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
