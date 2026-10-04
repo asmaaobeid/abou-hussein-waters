@@ -731,7 +731,12 @@ html[dir="ltr"] .nav-link::after {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    background: transparent;
     transition: opacity 0.28s ease, transform 0.35s ease;
+}
+
+.size-thumb img {
+    background: transparent;
 }
 
 .size-stage-image img.is-switching {

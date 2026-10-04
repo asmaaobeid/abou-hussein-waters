@@ -281,19 +281,19 @@ function setLanguage(lang) {
 const sizeCatalog = {
     orange: [
         {
-            image: 'images/product-orange-100.jpg',
+            image: 'images/product-orange-100.png',
             titleKey: 'sizes.ob100',
             descKey: 'sizes.ob100Desc',
             badgeKey: 'sizes.badge100'
         },
         {
-            image: 'images/product-orange-250.jpg',
+            image: 'images/product-orange-250.png',
             titleKey: 'sizes.ob250',
             descKey: 'sizes.ob250Desc',
             badgeKey: 'sizes.badge250'
         },
         {
-            image: 'images/product-orange-500.jpg',
+            image: 'images/product-orange-500.png',
             titleKey: 'sizes.ob500',
             descKey: 'sizes.ob500Desc',
             badgeKey: 'sizes.badge500'
@@ -301,25 +301,25 @@ const sizeCatalog = {
     ],
     rose: [
         {
-            image: 'images/product-rose-spray.jpg',
+            image: 'images/product-rose-spray.png',
             titleKey: 'sizes.rw50',
             descKey: 'sizes.rw50Desc',
             badgeKey: 'sizes.badge50'
         },
         {
-            image: 'images/product-rose-100.jpg',
+            image: 'images/product-rose-100.png',
             titleKey: 'sizes.rw100',
             descKey: 'sizes.rw100Desc',
             badgeKey: 'sizes.badge100'
         },
         {
-            image: 'images/product-rose-250.jpg',
+            image: 'images/product-rose-250.png',
             titleKey: 'sizes.rw250',
             descKey: 'sizes.rw250Desc',
             badgeKey: 'sizes.badge250'
         },
         {
-            image: 'images/product-rose-500.jpg',
+            image: 'images/product-rose-500.png',
             titleKey: 'sizes.rw500',
             descKey: 'sizes.rw500Desc',
             badgeKey: 'sizes.badge500'
