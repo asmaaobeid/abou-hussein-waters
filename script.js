@@ -53,8 +53,9 @@ const translations = {
         'sizes.rw250Desc': 'حجم كبير للاستخدام المتكرر، مناسب للعائلات ولكل من يفضل ماء الورد ضمن روتينه اليومي.',
         'sizes.rw500': 'ماء الورد - 500 مل',
         'sizes.rw500Desc': 'عبوة كبيرة اقتصادية تلبي الاستخدام المكثف، مثالية للمنتجعات والاستخدام التجاري والمنزلي.',
-        'desserts.title': 'حلويات عربية بنكهة خيالية',
-        'desserts.lead': 'لتكون حلويات بطعمة مميزة استخدم منتجاتنا',
+        'desserts.title': 'حلويات عربية… بنكهة من أيام زمان',
+        'desserts.lead': 'من المعمول إلى البقلاوة، ومن المهلبية إلى القطايف…',
+        'desserts.text': '<strong>ماء الورد وماء الزهر</strong> يضيفان اللمسة التي تجعل كل لقمة أطيب.',
         'desserts.cta': 'اكتشف ماء الزهر وماء الورد',
         'about.title': 'قصتنا',
         'about.p1': 'في مياه أبو حسين، نؤمن بأن أجمل ما في الطبيعة هو نقاؤها. بدأت رحلتنا من شغف بسيط داخل المنزل، وتحولت إلى حرفة نهتم فيها بكل تفصيل لنقدم ماء الزهر وماء الورد بأفضل جودة ممكنة.',
@@ -158,8 +159,9 @@ const translations = {
         'sizes.rw250Desc': 'A large size for frequent use, ideal for families and anyone who includes rose water in their routine.',
         'sizes.rw500': 'Rose Water - 500 ml',
         'sizes.rw500Desc': 'A large economical bottle for heavy use, ideal for spas, commercial, and home use.',
-        'desserts.title': 'Arabic sweets with an extraordinary flavor',
-        'desserts.lead': 'For desserts with a distinctive taste, use our products',
+        'desserts.title': 'Arabic sweets… with the flavor of olden days',
+        'desserts.lead': 'From maamoul to baklava, and from muhallabia to qatayef…',
+        'desserts.text': '<strong>Rose water and orange blossom water</strong> add the touch that makes every bite better.',
         'desserts.cta': 'Discover orange blossom & rose water',
         'about.title': 'Our story',
         'about.p1': 'At Abou Hussein Waters, we believe the beauty of nature is in its purity. Our journey began as a simple passion at home and grew into a craft where every detail matters, so we can offer orange blossom and rose water at the highest quality.',
@@ -603,7 +605,7 @@ window.addEventListener('load', () => {
 });
 
 // Scroll reveal animations
-const revealEls = document.querySelectorAll('.reveal, .product-card, .benefit-card, .gallery-item, .section-title, .desserts-title, .desserts-lead');
+const revealEls = document.querySelectorAll('.reveal, .product-card, .benefit-card, .gallery-item, .section-title, .desserts-title, .desserts-lead, .desserts-text');
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
