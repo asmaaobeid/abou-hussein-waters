@@ -84,10 +84,6 @@ const translations = {
         'footer.tagline': 'خلاصات طبيعية نقية مصنوعة بعناية لتلائم احتياجاتك اليومية في الجمال والعناية والانتعاش.',
         'footer.quickLinks': 'روابط سريعة',
         'footer.products': 'المنتجات',
-        'footer.newsletter': 'النشرة البريدية',
-        'footer.newsletterDesc': 'اشترك ليصلك كل جديد عن المنتجات والعروض الخاصة.',
-        'footer.emailPlaceholder': 'بريدك الإلكتروني',
-        'footer.subscribe': 'اشتراك',
         'footer.copyright': '&copy; 2024 مياه أبو حسين. جميع الحقوق محفوظة. | صُنع بحب <i class="fas fa-heart"></i> لعشاق الطبيعة',
         'popup.newProduct': 'منتج جديد',
         'popup.bestSeller': 'الأكثر طلبا',
@@ -98,7 +94,6 @@ const translations = {
         'popup.feature4': 'مصنوع يدويا بعناية',
         'popup.viewProducts': 'عرض المنتجات',
         'whatsapp.title': 'تواصل معنا عبر واتساب',
-        'toast.newsletter': 'شكرا لاشتراكك في النشرة البريدية',
         'toast.contactSuccess': 'شكرا لك، تم إرسال رسالتك بنجاح وسنتواصل معك قريبا',
         'toast.contactError': 'يرجى تعبئة جميع الحقول المطلوبة',
         'toast.addedToCart': 'تمت إضافة {name} إلى السلة',
@@ -189,10 +184,6 @@ const translations = {
         'footer.tagline': 'Pure natural extracts made with care for your daily beauty, care, and freshness needs.',
         'footer.quickLinks': 'Quick links',
         'footer.products': 'Products',
-        'footer.newsletter': 'Newsletter',
-        'footer.newsletterDesc': 'Subscribe for product news and special offers.',
-        'footer.emailPlaceholder': 'Your email',
-        'footer.subscribe': 'Subscribe',
         'footer.copyright': '&copy; 2024 Abou Hussein Waters. All rights reserved. | Made with <i class="fas fa-heart"></i> for nature lovers',
         'popup.newProduct': 'New product',
         'popup.bestSeller': 'Best seller',
@@ -203,7 +194,6 @@ const translations = {
         'popup.feature4': 'Carefully handmade',
         'popup.viewProducts': 'View products',
         'whatsapp.title': 'Contact us on WhatsApp',
-        'toast.newsletter': 'Thanks for subscribing to our newsletter',
         'toast.contactSuccess': 'Thank you, your message was sent and we will contact you soon',
         'toast.contactError': 'Please fill in all required fields',
         'toast.addedToCart': '{name} was added to the cart',
@@ -394,20 +384,6 @@ if (contactForm) {
         }
     });
 }
-
-// Newsletter Form
-const newsletterForms = document.querySelectorAll('.newsletter-form');
-
-newsletterForms.forEach(form => {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = form.querySelector('input[type="email"]').value;
-        if (email) {
-            showToast(t('toast.newsletter'));
-            form.reset();
-        }
-    });
-});
 
 // Toast Notification
 function showToast(message) {
