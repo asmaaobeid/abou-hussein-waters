@@ -56,6 +56,7 @@ const translations = {
         'desserts.title': 'حلويات عربية… بنكهة من أيام زمان',
         'desserts.lead': 'من المعمول إلى البقلاوة، ومن المهلبية إلى القطايف…',
         'desserts.text': '<strong>ماء الورد وماء الزهر</strong> يضيفان اللمسة التي تجعل كل لقمة أطيب.',
+        'desserts.pour': 'ماء الورد وماء الزهر هنا يُسكب فوق الخليط للحلويات',
         'desserts.cta': 'اكتشف ماء الزهر وماء الورد',
         'about.title': 'قصتنا',
         'about.p1': 'في مياه أبو حسين، نؤمن بأن أجمل ما في الطبيعة هو نقاؤها. بدأت رحلتنا من شغف بسيط داخل المنزل، وتحولت إلى حرفة نهتم فيها بكل تفصيل لنقدم ماء الزهر وماء الورد بأفضل جودة ممكنة.',
@@ -162,6 +163,7 @@ const translations = {
         'desserts.title': 'Arabic sweets… with the flavor of olden days',
         'desserts.lead': 'From maamoul to baklava, and from muhallabia to qatayef…',
         'desserts.text': '<strong>Rose water and orange blossom water</strong> add the touch that makes every bite better.',
+        'desserts.pour': 'Rose water and orange blossom water are poured here over the dessert mixture',
         'desserts.cta': 'Discover orange blossom & rose water',
         'about.title': 'Our story',
         'about.p1': 'At Abou Hussein Waters, we believe the beauty of nature is in its purity. Our journey began as a simple passion at home and grew into a craft where every detail matters, so we can offer orange blossom and rose water at the highest quality.',
@@ -416,6 +418,20 @@ document.querySelectorAll('.lang-btn').forEach(btn => {
 const savedLang = localStorage.getItem('siteLang');
 setLanguage(savedLang === 'en' ? 'en' : 'ar');
 initSizeCarousels();
+
+// Desserts pour scene: alternate rose / orange blossom bottles
+(function initDessertPour() {
+    const actor = document.querySelector('[data-pour-actor]');
+    if (!actor) return;
+    const bottles = Array.from(actor.querySelectorAll('.pour-bottle'));
+    if (bottles.length < 2) return;
+    let index = 0;
+    setInterval(() => {
+        index = (index + 1) % bottles.length;
+        bottles.forEach((bottle, i) => bottle.classList.toggle('is-active', i === index));
+        actor.setAttribute('data-pour', bottles[index].getAttribute('data-pour-bottle') || 'rose');
+    }, 3600);
+})();
 
 // Navigation Toggle
 const hamburger = document.querySelector('.hamburger');

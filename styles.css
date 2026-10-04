@@ -1157,79 +1157,155 @@ html[dir="ltr"] .size-nav-next i {
     transform: scale(1.05);
 }
 
-/* Desserts Section — hero-style full-bleed on desktop */
+/* Desserts Section — pour scene + copy */
 .desserts {
     position: relative;
-    min-height: 72vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    padding: clamp(3.5rem, 7vw, 5.5rem) 1.25rem;
     overflow: hidden;
     text-align: center;
     color: var(--white);
-    background: #1a2812;
-}
-
-.desserts-media {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(1rem, 4vw, 3.5rem);
-    padding-bottom: 12vh;
     background:
-        radial-gradient(circle at 50% 35%, rgba(197, 160, 89, 0.22), transparent 50%),
+        radial-gradient(circle at 50% 20%, rgba(197, 160, 89, 0.16), transparent 45%),
         linear-gradient(160deg, #111a0c 0%, #1e3014 55%, #2b4218 100%);
-}
-
-.desserts-bg-bottle {
-    width: min(220px, 22vw);
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 20px 36px rgba(0, 0, 0, 0.4));
-    opacity: 0.95;
-    transition: transform 0.5s ease;
-}
-
-.desserts-bg-ob {
-    transform: rotate(-7deg) translateY(12px);
-}
-
-.desserts-bg-rw {
-    transform: rotate(7deg) translateY(0);
-}
-
-.desserts:hover .desserts-bg-ob {
-    transform: rotate(-4deg) translateY(4px);
-}
-
-.desserts:hover .desserts-bg-rw {
-    transform: rotate(4deg) translateY(-8px);
 }
 
 .desserts-overlay {
     position: absolute;
     inset: 0;
-    z-index: 1;
+    z-index: 0;
     background:
         linear-gradient(
             180deg,
-            rgba(15, 24, 10, 0.25) 0%,
-            rgba(15, 24, 10, 0.15) 40%,
-            rgba(15, 24, 10, 0.55) 62%,
-            rgba(15, 24, 10, 0.9) 100%
+            rgba(15, 24, 10, 0.15) 0%,
+            rgba(15, 24, 10, 0.05) 40%,
+            rgba(15, 24, 10, 0.35) 100%
         );
     pointer-events: none;
 }
 
-.desserts-content {
+.desserts-inner {
     position: relative;
-    z-index: 2;
+    z-index: 1;
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    gap: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.desserts-pour {
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+}
+
+.pour-stage {
+    position: relative;
+    width: min(560px, 100%);
+    aspect-ratio: 16 / 11;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    background: #0f180a;
+}
+
+.pour-pot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+    display: block;
+}
+
+.pour-actor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.pour-bottle {
+    position: absolute;
+    top: 2%;
+    right: 14%;
+    width: min(92px, 18vw);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.35));
+    transform: rotate(38deg) translateY(-8px);
+    opacity: 0;
+    transition: opacity 0.45s ease;
+    animation: pourBottleTip 3.6s ease-in-out infinite;
+}
+
+.pour-bottle.is-active {
+    opacity: 1;
+}
+
+html[dir="ltr"] .pour-bottle {
+    right: auto;
+    left: 14%;
+    transform: rotate(-38deg) translateY(-8px);
+}
+
+html[dir="ltr"] .pour-bottle.is-active {
+    animation-name: pourBottleTipLtr;
+}
+
+.pour-stream {
+    position: absolute;
+    top: 28%;
+    right: 28%;
+    width: 5px;
+    height: 0;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(217, 120, 154, 0.75), rgba(197, 160, 89, 0.35));
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+    transform-origin: top center;
+    animation: pourStream 3.6s ease-in-out infinite;
+}
+
+html[dir="ltr"] .pour-stream {
+    right: auto;
+    left: 28%;
+}
+
+.pour-actor[data-pour="orange"] .pour-stream {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(232, 214, 150, 0.85), rgba(197, 160, 89, 0.4));
+}
+
+.pour-splash {
+    position: absolute;
+    top: 58%;
+    right: 26%;
+    width: 42px;
+    height: 18px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.7), rgba(217, 120, 154, 0.15) 55%, transparent 70%);
+    opacity: 0;
+    transform: scale(0.4);
+    animation: pourSplash 3.6s ease-in-out infinite;
+}
+
+html[dir="ltr"] .pour-splash {
+    right: auto;
+    left: 26%;
+}
+
+.pour-caption {
+    font-family: 'Cairo', sans-serif;
+    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    font-weight: 600;
+    color: var(--accent-color);
+    max-width: 34ch;
+    line-height: 1.7;
+    margin: 0;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.desserts-content {
     max-width: 760px;
     width: 100%;
-    padding: 1.5rem 1.5rem calc(2.75rem + env(safe-area-inset-bottom, 0px));
+    margin: 0 auto;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .desserts-title {
@@ -1267,25 +1343,53 @@ html[dir="ltr"] .size-nav-next i {
 }
 
 html[dir="ltr"] .desserts-lead,
-html[dir="ltr"] .desserts-text {
+html[dir="ltr"] .desserts-text,
+html[dir="ltr"] .pour-caption {
     max-width: 42ch;
 }
 
-@media (min-width: 901px) {
-    .desserts {
-        min-height: 78vh;
+@keyframes pourBottleTip {
+    0%, 12% { transform: rotate(28deg) translateY(-14px); }
+    28%, 68% { transform: rotate(42deg) translateY(2px); }
+    82%, 100% { transform: rotate(28deg) translateY(-14px); }
+}
+
+@keyframes pourBottleTipLtr {
+    0%, 12% { transform: rotate(-28deg) translateY(-14px); }
+    28%, 68% { transform: rotate(-42deg) translateY(2px); }
+    82%, 100% { transform: rotate(-28deg) translateY(-14px); }
+}
+
+@keyframes pourStream {
+    0%, 18% { height: 0; opacity: 0; }
+    30% { height: 34%; opacity: 1; }
+    68% { height: 36%; opacity: 1; }
+    82%, 100% { height: 0; opacity: 0; }
+}
+
+@keyframes pourSplash {
+    0%, 28% { opacity: 0; transform: scale(0.35); }
+    40%, 65% { opacity: 0.9; transform: scale(1); }
+    80%, 100% { opacity: 0; transform: scale(1.25); }
+}
+
+@media (max-width: 640px) {
+    .pour-bottle {
+        width: min(78px, 22vw);
+        right: 8%;
     }
 
-    .desserts-media {
-        padding-bottom: 18vh;
+    html[dir="ltr"] .pour-bottle {
+        left: 8%;
     }
 
-    .desserts-bg-bottle {
-        width: min(260px, 18vw);
+    .pour-stream {
+        right: 22%;
+        top: 30%;
     }
 
-    .desserts-content {
-        padding-bottom: 3.25rem;
+    html[dir="ltr"] .pour-stream {
+        left: 22%;
     }
 }
 
@@ -2126,19 +2230,6 @@ html[dir="ltr"] .popup-close {
     .about-content,
     .contact-content {
         grid-template-columns: 1fr;
-    }
-
-    .desserts {
-        min-height: 68vh;
-    }
-
-    .desserts-media {
-        gap: 0.5rem;
-        padding-bottom: 28vh;
-    }
-
-    .desserts-bg-bottle {
-        width: min(150px, 36vw);
     }
 
     .products-grid,
