@@ -1205,9 +1205,9 @@ html[dir="ltr"] .size-nav-next i {
     display: block;
     width: 100%;
     height: auto;
-    max-height: min(72vh, 720px);
-    object-fit: cover;
-    object-position: center top;
+    object-fit: contain;
+    object-position: center center;
+    background: #f3efe6;
 }
 
 .desserts-content {
@@ -1282,11 +1282,6 @@ html[dir="ltr"] .pour-caption {
     .desserts-inner {
         grid-template-columns: 1fr;
         max-width: 560px;
-    }
-
-    .desserts-photo img {
-        max-height: min(58vh, 520px);
-        object-position: center 30%;
     }
 
     .desserts-content,
