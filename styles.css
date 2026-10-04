@@ -281,8 +281,20 @@ html[dir="ltr"] .nav-link::after {
     padding: calc(6rem + var(--topbar-height)) 1.5rem 3rem;
 }
 
+.hero-umrah .hero-media {
+    background: #0f180a;
+}
+
 .hero-umrah .hero-poster {
-    object-position: center 30%;
+    object-fit: contain;
+    object-position: center center;
+    animation: none;
+    transform: none;
+}
+
+.hero-umrah .hero-overlay {
+    background:
+        linear-gradient(180deg, rgba(15, 24, 10, 0.45) 0%, rgba(15, 24, 10, 0.62) 45%, rgba(15, 24, 10, 0.82) 100%);
 }
 
 .hero-umrah .hero-content .promo-umrah-eyebrow {
