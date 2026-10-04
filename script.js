@@ -274,19 +274,8 @@ function setLanguage(lang) {
         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
-    if (typeof refreshSizeCarouselsLanguage === 'function') {
-        refreshSizeCarouselsLanguage();
-    }
+    refreshSizeCarouselsLanguage();
 }
-
-document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        setLanguage(btn.getAttribute('data-lang'));
-    });
-});
-
-const savedLang = localStorage.getItem('siteLang');
-setLanguage(savedLang === 'en' ? 'en' : 'ar');
 
 // Size carousels (scroll / browse all sizes)
 const sizeCatalog = {
@@ -340,39 +329,6 @@ const sizeCatalog = {
 
 const sizeCarouselState = {};
 
-function initSizeCarousels() {
-    document.querySelectorAll('[data-size-carousel]').forEach((root) => {
-        const key = root.getAttribute('data-size-carousel');
-        const items = sizeCatalog[key];
-        if (!items || !items.length) return;
-
-        sizeCarouselState[key] = 0;
-        const thumbs = root.querySelector('[data-size-thumbs]');
-        thumbs.innerHTML = '';
-
-        items.forEach((item, index) => {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = `size-thumb${key === 'rose' ? ' size-thumb-rose' : ''}`;
-            btn.setAttribute('aria-label', t(item.titleKey));
-            btn.innerHTML = `<img src="${item.image}" alt="" loading="lazy">`;
-            btn.addEventListener('click', () => setSizeCarouselIndex(key, index));
-            thumbs.appendChild(btn);
-        });
-
-        root.querySelector('.size-nav-prev')?.addEventListener('click', () => {
-            const next = (sizeCarouselState[key] - 1 + items.length) % items.length;
-            setSizeCarouselIndex(key, next);
-        });
-        root.querySelector('.size-nav-next')?.addEventListener('click', () => {
-            const next = (sizeCarouselState[key] + 1) % items.length;
-            setSizeCarouselIndex(key, next);
-        });
-
-        setSizeCarouselIndex(key, 0, true);
-    });
-}
-
 function setSizeCarouselIndex(key, index, instant = false) {
     const items = sizeCatalog[key];
     const root = document.querySelector(`[data-size-carousel="${key}"]`);
@@ -416,6 +372,47 @@ function refreshSizeCarouselsLanguage() {
     });
 }
 
+function initSizeCarousels() {
+    document.querySelectorAll('[data-size-carousel]').forEach((root) => {
+        const key = root.getAttribute('data-size-carousel');
+        const items = sizeCatalog[key];
+        if (!items || !items.length) return;
+
+        sizeCarouselState[key] = 0;
+        const thumbs = root.querySelector('[data-size-thumbs]');
+        thumbs.innerHTML = '';
+
+        items.forEach((item, index) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = `size-thumb${key === 'rose' ? ' size-thumb-rose' : ''}`;
+            btn.setAttribute('aria-label', t(item.titleKey));
+            btn.innerHTML = `<img src="${item.image}" alt="" loading="lazy">`;
+            btn.addEventListener('click', () => setSizeCarouselIndex(key, index));
+            thumbs.appendChild(btn);
+        });
+
+        root.querySelector('.size-nav-prev')?.addEventListener('click', () => {
+            const next = (sizeCarouselState[key] - 1 + items.length) % items.length;
+            setSizeCarouselIndex(key, next);
+        });
+        root.querySelector('.size-nav-next')?.addEventListener('click', () => {
+            const next = (sizeCarouselState[key] + 1) % items.length;
+            setSizeCarouselIndex(key, next);
+        });
+
+        setSizeCarouselIndex(key, 0, true);
+    });
+}
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        setLanguage(btn.getAttribute('data-lang'));
+    });
+});
+
+const savedLang = localStorage.getItem('siteLang');
+setLanguage(savedLang === 'en' ? 'en' : 'ar');
 initSizeCarousels();
 
 // Navigation Toggle
