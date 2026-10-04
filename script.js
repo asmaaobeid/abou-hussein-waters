@@ -6,6 +6,7 @@ const translations = {
         brand: 'أبو حسين',
         'nav.home': 'الرئيسية',
         'nav.products': 'المنتجات',
+        'nav.desserts': 'الحلويات',
         'nav.umrah': 'العمرة',
         'nav.about': 'من نحن',
         'umrah.eyebrow': 'بخاخ الورد الأصلي',
@@ -51,6 +52,9 @@ const translations = {
         'sizes.rw250Desc': 'حجم كبير للاستخدام المتكرر، مناسب للعائلات ولكل من يفضل ماء الورد ضمن روتينه اليومي.',
         'sizes.rw500': 'ماء الورد - 500 مل',
         'sizes.rw500Desc': 'عبوة كبيرة اقتصادية تلبي الاستخدام المكثف، مثالية للمنتجعات والاستخدام التجاري والمنزلي.',
+        'desserts.title': 'حلويات عربية بنكهة خيالية',
+        'desserts.lead': 'لتكون حلويات بطعمة مميزة استخدم منتجاتنا',
+        'desserts.cta': 'اكتشف ماء الزهر وماء الورد',
         'about.title': 'قصتنا',
         'about.p1': 'في مياه أبو حسين، نؤمن بأن أجمل ما في الطبيعة هو نقاؤها. بدأت رحلتنا من شغف بسيط داخل المنزل، وتحولت إلى حرفة نهتم فيها بكل تفصيل لنقدم ماء الزهر وماء الورد بأفضل جودة ممكنة.',
         'about.p2': 'نقطر كل عبوة بعناية وبالطرق التقليدية للحفاظ على جوهر الزهرة وخصائصها الطبيعية. نعتمد على أزهار مختارة بعناية وماء نقي مفلتر لنحافظ على الصفاء الحقيقي في كل منتج.',
@@ -106,6 +110,7 @@ const translations = {
         brand: 'Abu Hussein',
         'nav.home': 'Home',
         'nav.products': 'Products',
+        'nav.desserts': 'Desserts',
         'nav.umrah': 'Umrah',
         'nav.about': 'About',
         'umrah.eyebrow': 'Original rose spray',
@@ -151,6 +156,9 @@ const translations = {
         'sizes.rw250Desc': 'A large size for frequent use, ideal for families and anyone who includes rose water in their routine.',
         'sizes.rw500': 'Rose Water - 500 ml',
         'sizes.rw500Desc': 'A large economical bottle for heavy use, ideal for spas, commercial, and home use.',
+        'desserts.title': 'Arabic sweets with an extraordinary flavor',
+        'desserts.lead': 'For desserts with a distinctive taste, use our products',
+        'desserts.cta': 'Discover orange blossom & rose water',
         'about.title': 'Our story',
         'about.p1': 'At Abou Hussein Waters, we believe the beauty of nature is in its purity. Our journey began as a simple passion at home and grew into a craft where every detail matters, so we can offer orange blossom and rose water at the highest quality.',
         'about.p2': 'Every bottle is carefully distilled with traditional methods to preserve the essence and natural properties of the flower. We use carefully selected blossoms and pure filtered water to keep true clarity in every product.',
@@ -462,7 +470,7 @@ window.addEventListener('load', () => {
 });
 
 // Scroll reveal animations
-const revealEls = document.querySelectorAll('.reveal, .product-card, .benefit-card, .gallery-item, .section-title');
+const revealEls = document.querySelectorAll('.reveal, .product-card, .benefit-card, .gallery-item, .section-title, .desserts-title, .desserts-lead');
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {

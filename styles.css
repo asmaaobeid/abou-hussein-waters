@@ -915,6 +915,93 @@ html[dir="ltr"] .nav-link::after {
     transform: scale(1.05);
 }
 
+/* Desserts Section */
+.desserts {
+    padding: 80px 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(197, 160, 89, 0.18), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(217, 120, 154, 0.12), transparent 40%),
+        linear-gradient(160deg, #1a2812 0%, #2b4218 55%, #3a5224 100%);
+}
+
+.desserts-panel {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.desserts-copy {
+    color: var(--white);
+}
+
+.desserts-title {
+    font-family: 'Cairo', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--secondary-color);
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+.desserts-lead {
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 32ch;
+}
+
+.desserts-cta {
+    display: inline-block;
+}
+
+.desserts-visual {
+    position: relative;
+    min-height: 280px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.desserts-bottle {
+    width: min(180px, 42vw);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.35));
+    transition: transform 0.45s ease;
+}
+
+.desserts-bottle-ob {
+    transform: rotate(-8deg) translateY(8px);
+    z-index: 1;
+}
+
+.desserts-bottle-rw {
+    transform: rotate(8deg) translateX(-18px) translateY(-6px);
+    z-index: 2;
+}
+
+.desserts-panel:hover .desserts-bottle-ob {
+    transform: rotate(-5deg) translateY(0);
+}
+
+.desserts-panel:hover .desserts-bottle-rw {
+    transform: rotate(5deg) translateX(-14px) translateY(-14px);
+}
+
+html[dir="ltr"] .desserts-lead {
+    max-width: 36ch;
+}
+
+html[dir="ltr"] .desserts-bottle-rw {
+    transform: rotate(8deg) translateX(18px) translateY(-6px);
+}
+
+html[dir="ltr"] .desserts-panel:hover .desserts-bottle-rw {
+    transform: rotate(5deg) translateX(14px) translateY(-14px);
+}
+
 /* About Section */
 .about {
     padding: 100px 0;
@@ -1750,8 +1837,23 @@ html[dir="ltr"] .popup-close {
     }
 
     .about-content,
-    .contact-content {
+    .contact-content,
+    .desserts-panel {
         grid-template-columns: 1fr;
+    }
+
+    .desserts-copy {
+        text-align: center;
+    }
+
+    .desserts-lead {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .desserts-visual {
+        min-height: 220px;
+        order: -1;
     }
 
     .products-grid,
