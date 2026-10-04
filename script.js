@@ -419,20 +419,6 @@ const savedLang = localStorage.getItem('siteLang');
 setLanguage(savedLang === 'en' ? 'en' : 'ar');
 initSizeCarousels();
 
-// Desserts pour scene: alternate rose / orange blossom bottles
-(function initDessertPour() {
-    const actor = document.querySelector('[data-pour-actor]');
-    if (!actor) return;
-    const bottles = Array.from(actor.querySelectorAll('.pour-bottle'));
-    if (bottles.length < 2) return;
-    let index = 0;
-    setInterval(() => {
-        index = (index + 1) % bottles.length;
-        bottles.forEach((bottle, i) => bottle.classList.toggle('is-active', i === index));
-        actor.setAttribute('data-pour', bottles[index].getAttribute('data-pour-bottle') || 'rose');
-    }, 3600);
-})();
-
 // Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');

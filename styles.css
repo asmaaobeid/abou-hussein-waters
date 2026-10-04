@@ -1157,15 +1157,14 @@ html[dir="ltr"] .size-nav-next i {
     transform: scale(1.05);
 }
 
-/* Desserts Section — pour scene + copy */
+/* Desserts Section — lifestyle photo + copy */
 .desserts {
     position: relative;
     padding: clamp(3.5rem, 7vw, 5.5rem) 1.25rem;
     overflow: hidden;
-    text-align: center;
     color: var(--white);
     background:
-        radial-gradient(circle at 50% 20%, rgba(197, 160, 89, 0.16), transparent 45%),
+        radial-gradient(circle at 20% 20%, rgba(197, 160, 89, 0.16), transparent 45%),
         linear-gradient(160deg, #111a0c 0%, #1e3014 55%, #2b4218 100%);
 }
 
@@ -1176,9 +1175,9 @@ html[dir="ltr"] .size-nav-next i {
     background:
         linear-gradient(
             180deg,
-            rgba(15, 24, 10, 0.15) 0%,
-            rgba(15, 24, 10, 0.05) 40%,
-            rgba(15, 24, 10, 0.35) 100%
+            rgba(15, 24, 10, 0.12) 0%,
+            rgba(15, 24, 10, 0.08) 50%,
+            rgba(15, 24, 10, 0.28) 100%
         );
     pointer-events: none;
 }
@@ -1186,126 +1185,53 @@ html[dir="ltr"] .size-nav-next i {
 .desserts-inner {
     position: relative;
     z-index: 1;
-    max-width: 980px;
+    max-width: 1080px;
     margin: 0 auto;
     display: grid;
-    gap: clamp(1.75rem, 4vw, 2.75rem);
+    grid-template-columns: minmax(240px, 0.9fr) minmax(280px, 1.1fr);
+    gap: clamp(1.75rem, 4vw, 3.5rem);
+    align-items: center;
 }
 
-.desserts-pour {
-    display: grid;
-    gap: 1rem;
-    justify-items: center;
-}
-
-.pour-stage {
-    position: relative;
-    width: min(560px, 100%);
-    aspect-ratio: 16 / 11;
-    border-radius: 18px;
+.desserts-photo {
+    margin: 0;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.35);
     background: #0f180a;
 }
 
-.pour-pot {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 55%;
+.desserts-photo img {
     display: block;
-}
-
-.pour-actor {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-}
-
-.pour-bottle {
-    position: absolute;
-    top: 2%;
-    right: 14%;
-    width: min(92px, 18vw);
+    width: 100%;
     height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.35));
-    transform: rotate(38deg) translateY(-8px);
-    opacity: 0;
-    transition: opacity 0.45s ease;
-    animation: pourBottleTip 3.6s ease-in-out infinite;
+    max-height: min(72vh, 720px);
+    object-fit: cover;
+    object-position: center top;
 }
 
-.pour-bottle.is-active {
-    opacity: 1;
+.desserts-content {
+    text-align: center;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-html[dir="ltr"] .pour-bottle {
-    right: auto;
-    left: 14%;
-    transform: rotate(-38deg) translateY(-8px);
+html[dir="rtl"] .desserts-content {
+    text-align: right;
 }
 
-html[dir="ltr"] .pour-bottle.is-active {
-    animation-name: pourBottleTipLtr;
-}
-
-.pour-stream {
-    position: absolute;
-    top: 28%;
-    right: 28%;
-    width: 5px;
-    height: 0;
-    border-radius: 999px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(217, 120, 154, 0.75), rgba(197, 160, 89, 0.35));
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
-    transform-origin: top center;
-    animation: pourStream 3.6s ease-in-out infinite;
-}
-
-html[dir="ltr"] .pour-stream {
-    right: auto;
-    left: 28%;
-}
-
-.pour-actor[data-pour="orange"] .pour-stream {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(232, 214, 150, 0.85), rgba(197, 160, 89, 0.4));
-}
-
-.pour-splash {
-    position: absolute;
-    top: 58%;
-    right: 26%;
-    width: 42px;
-    height: 18px;
-    border-radius: 50%;
-    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.7), rgba(217, 120, 154, 0.15) 55%, transparent 70%);
-    opacity: 0;
-    transform: scale(0.4);
-    animation: pourSplash 3.6s ease-in-out infinite;
-}
-
-html[dir="ltr"] .pour-splash {
-    right: auto;
-    left: 26%;
+html[dir="ltr"] .desserts-content {
+    text-align: left;
 }
 
 .pour-caption {
     font-family: 'Cairo', sans-serif;
-    font-size: clamp(1rem, 2.2vw, 1.2rem);
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
     font-weight: 600;
     color: var(--accent-color);
     max-width: 34ch;
     line-height: 1.7;
-    margin: 0;
+    margin: 0 0 1.5rem;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
-}
-
-.desserts-content {
-    max-width: 760px;
-    width: 100%;
-    margin: 0 auto;
-    padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .desserts-title {
@@ -1323,7 +1249,7 @@ html[dir="ltr"] .pour-splash {
     color: rgba(255, 255, 255, 0.95);
     font-weight: 500;
     line-height: 1.7;
-    margin: 0 auto 0.75rem;
+    margin: 0 0 0.75rem;
     max-width: 34ch;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
@@ -1332,7 +1258,7 @@ html[dir="ltr"] .pour-splash {
     font-size: clamp(1rem, 2vw, 1.2rem);
     color: rgba(255, 255, 255, 0.92);
     line-height: 1.8;
-    margin: 0 auto 1.5rem;
+    margin: 0 0 0.85rem;
     max-width: 36ch;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
@@ -1348,48 +1274,36 @@ html[dir="ltr"] .pour-caption {
     max-width: 42ch;
 }
 
-@keyframes pourBottleTip {
-    0%, 12% { transform: rotate(28deg) translateY(-14px); }
-    28%, 68% { transform: rotate(42deg) translateY(2px); }
-    82%, 100% { transform: rotate(28deg) translateY(-14px); }
+.desserts-content .hero-buttons {
+    justify-content: flex-start;
 }
 
-@keyframes pourBottleTipLtr {
-    0%, 12% { transform: rotate(-28deg) translateY(-14px); }
-    28%, 68% { transform: rotate(-42deg) translateY(2px); }
-    82%, 100% { transform: rotate(-28deg) translateY(-14px); }
-}
-
-@keyframes pourStream {
-    0%, 18% { height: 0; opacity: 0; }
-    30% { height: 34%; opacity: 1; }
-    68% { height: 36%; opacity: 1; }
-    82%, 100% { height: 0; opacity: 0; }
-}
-
-@keyframes pourSplash {
-    0%, 28% { opacity: 0; transform: scale(0.35); }
-    40%, 65% { opacity: 0.9; transform: scale(1); }
-    80%, 100% { opacity: 0; transform: scale(1.25); }
-}
-
-@media (max-width: 640px) {
-    .pour-bottle {
-        width: min(78px, 22vw);
-        right: 8%;
+@media (max-width: 900px) {
+    .desserts-inner {
+        grid-template-columns: 1fr;
+        max-width: 560px;
     }
 
-    html[dir="ltr"] .pour-bottle {
-        left: 8%;
+    .desserts-photo img {
+        max-height: min(58vh, 520px);
+        object-position: center 30%;
     }
 
-    .pour-stream {
-        right: 22%;
-        top: 30%;
+    .desserts-content,
+    html[dir="rtl"] .desserts-content,
+    html[dir="ltr"] .desserts-content {
+        text-align: center;
     }
 
-    html[dir="ltr"] .pour-stream {
-        left: 22%;
+    .desserts-lead,
+    .desserts-text,
+    .pour-caption {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .desserts-content .hero-buttons {
+        justify-content: center;
     }
 }
 
