@@ -286,10 +286,11 @@ html[dir="ltr"] .nav-link::after {
 }
 
 .hero-umrah .hero-poster {
-    object-fit: contain;
-    object-position: center center;
+    /* Full-bleed: no black side bars. Use a wide photo (see note below). */
+    object-fit: cover;
+    object-position: center 40%;
     animation: none;
-    transform: none;
+    transform: scale(1);
 }
 
 .hero-umrah .hero-overlay {
