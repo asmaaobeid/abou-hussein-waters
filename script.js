@@ -7,6 +7,7 @@ const translations = {
         'nav.home': 'الرئيسية',
         'nav.products': 'المنتجات',
         'nav.desserts': 'الحلويات',
+        'nav.uses': 'الاستخدامات',
         'nav.umrah': 'العمرة',
         'nav.about': 'من نحن',
         'umrah.eyebrow': 'بخاخ الورد الأصلي',
@@ -59,6 +60,21 @@ const translations = {
         'desserts.text': '<strong>ماء الورد وماء الزهر</strong> يضيفان اللمسة التي تجعل كل لقمة أطيب.',
         'desserts.pour': 'ماء الورد وماء الزهر هنا يُسكب فوق الخليط للحلويات',
         'desserts.cta': 'اكتشف ماء الزهر وماء الورد',
+        'uses.title': 'استخدامات إيجابية لماء الورد وماء الزهر',
+        'uses.subtitle': 'طرق بسيطة وآمنة للاستفادة من منتجات أبو حسين في يومك',
+        'uses.tonerTitle': 'تونر طبيعي للوجه',
+        'uses.tonerDesc': 'بعد التنظيف، مرّري ماء الورد أو ماء الزهر بقطنة نظيفة على الوجه والرقبة لانتعاش فوري وترطيب لطيف.',
+        'uses.mistTitle': 'رذاذ انتعاش خلال اليوم',
+        'uses.mistDesc': 'رشة خفيفة على الوجه أو الجسم تعيد الحيوية وتمنحك رائحة زهرية ناعمة دون عطور ثقيلة.',
+        'uses.sootheTitle': 'تهدئة البشرة الحساسة',
+        'uses.sootheDesc': 'استخدميه بلطف على البشرة بعد يوم طويل أو تعرّض للشمس للمساعدة على التهدئة والنعومة.',
+        'uses.hairTitle': 'لمسة عطرية للشعر',
+        'uses.hairDesc': 'رشة خفيفة على الشعر أو آخر غسلة بالماء الزهري تترك رائحة منعشة دون تثقل الخصلات.',
+        'uses.linenTitle': 'تعطير الوسائد والمنزل',
+        'uses.linenDesc': 'رشي قليلاً على الوسائد أو المفروشات لأجواء هادئة ورائحة طبيعية مريحة قبل النوم.',
+        'uses.kitchenTitle': 'نكهة في الحلويات والمطبخ',
+        'uses.kitchenDesc': 'أضيفي قطرات إلى المعمول والبقلاوة والمهلبية والقطايف لنكهة عربية أصيلة بنقاء طبيعي.',
+        'uses.note': 'للعناية الخارجية فقط. اختبري كمية صغيرة على الجلد أولاً إذا كانت بشرتك حساسة جداً.',
         'about.title': 'قصتنا',
         'about.p1': 'في مياه أبو حسين، نؤمن بأن أجمل ما في الطبيعة هو نقاؤها. بدأت رحلتنا من شغف بسيط داخل المنزل، وتحولت إلى حرفة نهتم فيها بكل تفصيل لنقدم ماء الزهر وماء الورد بأفضل جودة ممكنة.',
         'about.p2': 'نقطر كل عبوة بعناية وبالطرق التقليدية للحفاظ على جوهر الزهرة وخصائصها الطبيعية. نعتمد على أزهار مختارة بعناية وماء نقي مفلتر لنحافظ على الصفاء الحقيقي في كل منتج.',
@@ -115,6 +131,7 @@ const translations = {
         'nav.home': 'Home',
         'nav.products': 'Products',
         'nav.desserts': 'Desserts',
+        'nav.uses': 'Uses',
         'nav.umrah': 'Umrah',
         'nav.about': 'About',
         'umrah.eyebrow': 'Original rose spray',
@@ -167,6 +184,21 @@ const translations = {
         'desserts.text': '<strong>Rose water and orange blossom water</strong> add the touch that makes every bite better.',
         'desserts.pour': 'Rose water and orange blossom water are poured here over the dessert mixture',
         'desserts.cta': 'Discover orange blossom & rose water',
+        'uses.title': 'Positive uses for rose water & orange blossom water',
+        'uses.subtitle': 'Simple, gentle ways to enjoy Abou Hussein products every day',
+        'uses.tonerTitle': 'Natural face toner',
+        'uses.tonerDesc': 'After cleansing, sweep rose or orange blossom water on the face and neck with a clean cotton pad for instant freshness and soft hydration.',
+        'uses.mistTitle': 'All-day refreshing mist',
+        'uses.mistDesc': 'A light mist on the face or body restores vitality and leaves a soft floral scent without heavy perfume.',
+        'uses.sootheTitle': 'Soothing for sensitive skin',
+        'uses.sootheDesc': 'Use gently on skin after a long day or sun exposure to help calm and soften.',
+        'uses.hairTitle': 'A light scent for hair',
+        'uses.hairDesc': 'A light mist on hair, or a final rinse with floral water, leaves a fresh scent without weighing strands down.',
+        'uses.linenTitle': 'Pillow & home fragrance',
+        'uses.linenDesc': 'Mist lightly on pillows or linens for a calm atmosphere and a natural scent before sleep.',
+        'uses.kitchenTitle': 'Flavor in sweets & cooking',
+        'uses.kitchenDesc': 'Add a few drops to maamoul, baklava, muhallabia, and qatayef for an authentic Arabic flavor with natural purity.',
+        'uses.note': 'For external care only. Patch-test a small amount first if your skin is very sensitive.',
         'about.title': 'Our story',
         'about.p1': 'At Abou Hussein Waters, we believe the beauty of nature is in its purity. Our journey began as a simple passion at home and grew into a craft where every detail matters, so we can offer orange blossom and rose water at the highest quality.',
         'about.p2': 'Every bottle is carefully distilled with traditional methods to preserve the essence and natural properties of the flower. We use carefully selected blossoms and pure filtered water to keep true clarity in every product.',
@@ -609,7 +641,7 @@ window.addEventListener('load', () => {
 });
 
 // Scroll reveal animations
-const revealEls = document.querySelectorAll('.reveal, .product-card, .benefit-card, .gallery-item, .section-title, .desserts-title, .desserts-lead, .desserts-text');
+const revealEls = document.querySelectorAll('.reveal, .product-card, .benefit-card, .gallery-item, .section-title, .desserts-title, .desserts-lead, .desserts-text, .use-item');
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
