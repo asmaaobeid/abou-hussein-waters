@@ -285,8 +285,11 @@ html[dir="ltr"] .nav-link::after {
     background: #0f180a;
 }
 
+.hero-umrah {
+    align-items: flex-end;
+}
+
 .hero-umrah .hero-poster {
-    /* Full-bleed wide Umrah photo (~16:9) */
     object-fit: cover;
     object-position: center center;
     animation: none;
@@ -294,8 +297,33 @@ html[dir="ltr"] .nav-link::after {
 }
 
 .hero-umrah .hero-overlay {
+    /* Lighter in the middle so the bottle stays visible */
     background:
-        linear-gradient(180deg, rgba(15, 24, 10, 0.45) 0%, rgba(15, 24, 10, 0.62) 45%, rgba(15, 24, 10, 0.82) 100%);
+        linear-gradient(
+            180deg,
+            rgba(15, 24, 10, 0.35) 0%,
+            rgba(15, 24, 10, 0.2) 35%,
+            rgba(15, 24, 10, 0.45) 58%,
+            rgba(15, 24, 10, 0.88) 100%
+        );
+}
+
+.hero-umrah-content {
+    max-width: 760px;
+    width: 100%;
+    padding: 1.25rem 1.5rem calc(2.5rem + env(safe-area-inset-bottom, 0px));
+    margin-bottom: 0.5rem;
+}
+
+.hero-umrah .hero-title {
+    font-size: clamp(1.45rem, 3.6vw, 2.35rem);
+    margin-bottom: 0.55rem;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+}
+
+.hero-umrah .hero-subtitle {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    margin-bottom: 1.25rem;
 }
 
 .hero-umrah .hero-content .promo-umrah-eyebrow {
@@ -303,7 +331,7 @@ html[dir="ltr"] .nav-link::after {
 }
 
 .hero-umrah .hero-content .promo-umrah-lead {
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.65rem;
     animation: fadeInUp 1s ease 0.25s both;
 }
 
