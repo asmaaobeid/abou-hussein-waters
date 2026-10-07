@@ -19,6 +19,7 @@ const translations = {
         'popup.umrahTitle': 'من دفء مكة… إلى انتعاش الورد.',
         'popup.umrahText': 'يُستخدم في مكة لترطيب وحيوية الجسد — نفحة أصيلة تمنحك الانتعاش في كل لحظة.',
         'nav.benefits': 'الفوائد',
+        'nav.reviews': 'آراء الزبائن',
         'nav.gallery': 'المعرض',
         'hero.title': 'نقاء الطبيعة في كل قطرة',
         'hero.subtitle': 'ماء الزهر وماء الورد المقطر يدويا<br>محضّر بحب وعلى أصول الطبيعة',
@@ -95,6 +96,18 @@ const translations = {
         'benefits.handmadeDesc': 'كل دفعة تُحضّر بعناية باستخدام طرق تقطير تقليدية للحفاظ على أعلى مستوى من الجودة والنقاء.',
         'benefits.ecoTitle': 'صديق للبيئة',
         'benefits.ecoDesc': 'نعتمد ممارسات مستدامة وتغليفا مناسبا للبيئة لأننا نهتم بك وبالطبيعة في الوقت نفسه.',
+        'reviews.title': 'طلبات وآراء إيجابية من زبائننا',
+        'reviews.subtitle': 'ثقة حقيقية من ناس جرّبوا ماء الورد وماء الزهر',
+        'reviews.q1': 'طلبت بخاخ الورد للعمرة ورجعت طلبت كمان مرة… فعلاً بيرطب وبيعطي حيوية.',
+        'reviews.a1': 'زبونة من بيروت',
+        'reviews.q2': 'استخدمنا ماء الزهر بالمعمول والنتيجة خيالية. ريحة ونكهة غير شكل.',
+        'reviews.a2': 'زبونة من طرابلس',
+        'reviews.q3': 'من أول طلب صرت أرجع أطلب. منتجات طبيعية والناس حوالينا عم تسأل من وين.',
+        'reviews.a3': 'زبون من صيدا',
+        'reviews.realEyebrow': 'على الواقع',
+        'reviews.realTitle': 'شوفوه على الواقع مثل هيك',
+        'reviews.realText': 'فيديوهات حقيقية من إنستغرام لزبائن وتجارب يومية مع ماء الورد وماء الزهر — تقدر تتحقق بنفسك.',
+        'reviews.realCta': 'شاهد على إنستغرام',
         'gallery.title': 'طريقة التحضير',
         'gallery.subtitle': 'من الزهرة إلى الزجاجة، هكذا نحضّر خلاصاتنا الطبيعية',
         'gallery.freshTitle': 'زهور طازجة',
@@ -143,6 +156,7 @@ const translations = {
         'popup.umrahTitle': 'From the warmth of Mecca… to the freshness of rose.',
         'popup.umrahText': 'Used in Mecca for hydration and body vitality — an authentic touch of freshness in every moment.',
         'nav.benefits': 'Benefits',
+        'nav.reviews': 'Reviews',
         'nav.gallery': 'Gallery',
         'hero.title': 'Nature\'s purity in every drop',
         'hero.subtitle': 'Hand-distilled orange blossom and rose water<br>Crafted with love, the natural way',
@@ -219,6 +233,18 @@ const translations = {
         'benefits.handmadeDesc': 'Every batch is prepared with care using traditional distillation methods to keep the highest quality and purity.',
         'benefits.ecoTitle': 'Eco-friendly',
         'benefits.ecoDesc': 'We follow sustainable practices and thoughtful packaging because we care about you and nature together.',
+        'reviews.title': 'Positive customer requests & reviews',
+        'reviews.subtitle': 'Real trust from people who tried our rose and orange blossom water',
+        'reviews.q1': 'I ordered the rose spray for Umrah and ordered again… it really hydrates and gives vitality.',
+        'reviews.a1': 'Customer from Beirut',
+        'reviews.q2': 'We used orange blossom water in maamoul and the result was amazing — scent and flavor on another level.',
+        'reviews.a2': 'Customer from Tripoli',
+        'reviews.q3': 'From the first order I keep coming back. Natural products, and people around us ask where we got them.',
+        'reviews.a3': 'Customer from Sidon',
+        'reviews.realEyebrow': 'In real life',
+        'reviews.realTitle': 'See it for real, like this',
+        'reviews.realText': 'Real Instagram videos of customers and everyday experiences with rose and orange blossom water — check it yourself.',
+        'reviews.realCta': 'Watch on Instagram',
         'gallery.title': 'How we make it',
         'gallery.subtitle': 'From flower to bottle — how we craft our natural extracts',
         'gallery.freshTitle': 'Fresh flowers',
@@ -641,7 +667,7 @@ window.addEventListener('load', () => {
 });
 
 // Scroll reveal animations
-const revealEls = document.querySelectorAll('.reveal, .product-card, .benefit-card, .gallery-item, .section-title, .desserts-title, .desserts-lead, .desserts-text, .use-item');
+const revealEls = document.querySelectorAll('.reveal, .product-card, .benefit-card, .gallery-item, .section-title, .desserts-title, .desserts-lead, .desserts-text, .use-item, .review-item, .reviews-real');
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
