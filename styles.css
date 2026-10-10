@@ -1358,11 +1358,39 @@ html[dir="ltr"] .pour-caption {
     background: var(--cream);
 }
 
+.drink-uses {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+}
+
+.drink-card {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 1.75rem 1.25rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--secondary-color);
+}
+
+.drink-card h3 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    margin-bottom: 0.65rem;
+}
+
+.drink-card p {
+    color: var(--text-light);
+    line-height: 1.75;
+}
+
 .uses-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.75rem 1.5rem;
-    margin-top: 2.5rem;
+    margin-top: 2.75rem;
 }
 
 .use-item {
@@ -1408,12 +1436,7 @@ html[dir="ltr"] .pour-caption {
 }
 
 @media (max-width: 900px) {
-    .uses-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 560px) {
+    .drink-uses,
     .uses-grid {
         grid-template-columns: 1fr;
     }
