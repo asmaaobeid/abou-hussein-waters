@@ -20,6 +20,7 @@ const translations = {
         'popup.umrahText': 'يُستخدم في مكة لترطيب وحيوية الجسد — نفحة أصيلة تمنحك الانتعاش في كل لحظة.',
         'nav.benefits': 'الفوائد',
         'nav.reviews': 'آراء الزبائن',
+        'nav.order': 'الطلب والتوصيل',
         'nav.gallery': 'المعرض',
         'hero.title': 'نقاء الطبيعة في كل قطرة',
         'hero.subtitle': 'ماء الزهر وماء الورد المقطر يدويا<br>محضّر بحب وعلى أصول الطبيعة',
@@ -119,6 +120,21 @@ const translations = {
         'gallery.bottleTitle': 'التعبئة',
         'gallery.bottleDesc': 'نعبئ المنتج بعناية للحفاظ على الانتعاش',
         'footer.tagline': 'خلاصات طبيعية نقية مصنوعة بعناية لتلائم احتياجاتك اليومية في الجمال والعناية والانتعاش.',
+        'order.title': 'الطلب والتوصيل',
+        'order.subtitle': 'من طرابلس إلى كل لبنان',
+        'order.whereTitle': 'وين نحن؟',
+        'order.whereDesc': 'مقرّنا في طرابلس، لبنان. التوصيل يغطي كل المناطق اللبنانية.',
+        'order.whereShort': 'طرابلس، لبنان',
+        'order.deliveryTitle': 'التوصيل',
+        'order.deliveryDesc': 'يوصل الطلب خلال 1 إلى 3 أيام على كل لبنان.',
+        'order.payTitle': 'الدفع',
+        'order.payDesc': 'الدفع نقداً عند الاستلام.',
+        'order.returnTitle': 'الإرجاع',
+        'order.returnDesc': 'إذا في أي مشكلة بالطلب، منرجّع المنتج. تواصل معنا وبنرتّب الإرجاع.',
+        'order.phoneTitle': 'للتواصل',
+        'order.whatsapp': 'واتساب',
+        'order.careTitle': 'الاستخدام والحفظ',
+        'order.careDesc': 'للوجه رذاذ أو قطنة بعد التنظيف، وللحلويات بضع قطرات. احفظ العبوة مغلقة بمكان بارد بعيد عن الشمس والحرارة.',
         'footer.quickLinks': 'روابط سريعة',
         'footer.products': 'المنتجات',
         'footer.copyright': '&copy; 2024 مياه أبو حسين. جميع الحقوق محفوظة. | صُنع بحب <i class="fas fa-heart"></i> لعشاق الطبيعة',
@@ -157,6 +173,7 @@ const translations = {
         'popup.umrahText': 'Used in Mecca for hydration and body vitality — an authentic touch of freshness in every moment.',
         'nav.benefits': 'Benefits',
         'nav.reviews': 'Reviews',
+        'nav.order': 'Order & delivery',
         'nav.gallery': 'Gallery',
         'hero.title': 'Nature\'s purity in every drop',
         'hero.subtitle': 'Hand-distilled orange blossom and rose water<br>Crafted with love, the natural way',
@@ -256,6 +273,21 @@ const translations = {
         'gallery.bottleTitle': 'Bottling',
         'gallery.bottleDesc': 'We bottle with care to keep freshness',
         'footer.tagline': 'Pure natural extracts made with care for your daily beauty, care, and freshness needs.',
+        'order.title': 'Order & delivery',
+        'order.subtitle': 'From Tripoli to all of Lebanon',
+        'order.whereTitle': 'Where we are',
+        'order.whereDesc': 'We are based in Tripoli, Lebanon, and we deliver across the country.',
+        'order.whereShort': 'Tripoli, Lebanon',
+        'order.deliveryTitle': 'Delivery',
+        'order.deliveryDesc': 'Orders arrive in 1 to 3 days anywhere in Lebanon.',
+        'order.payTitle': 'Payment',
+        'order.payDesc': 'Cash on delivery.',
+        'order.returnTitle': 'Returns',
+        'order.returnDesc': 'If there is any problem with your order, we take the product back. Contact us and we will arrange the return.',
+        'order.phoneTitle': 'Contact',
+        'order.whatsapp': 'WhatsApp',
+        'order.careTitle': 'How to use & store',
+        'order.careDesc': 'On the face, mist or wipe with cotton after cleansing. In sweets, add a few drops. Keep the bottle closed in a cool place, away from sun and heat.',
         'footer.quickLinks': 'Quick links',
         'footer.products': 'Products',
         'footer.copyright': '&copy; 2024 Abou Hussein Waters. All rights reserved. | Made with <i class="fas fa-heart"></i> for nature lovers',
@@ -667,7 +699,7 @@ window.addEventListener('load', () => {
 });
 
 // Scroll reveal animations
-const revealEls = document.querySelectorAll('.reveal, .product-card, .benefit-card, .gallery-item, .section-title, .desserts-title, .desserts-lead, .desserts-text, .use-item, .review-item, .reviews-real');
+const revealEls = document.querySelectorAll('.reveal, .product-card, .benefit-card, .gallery-item, .section-title, .desserts-title, .desserts-lead, .desserts-text, .use-item, .review-item, .reviews-real, .order-card');
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
